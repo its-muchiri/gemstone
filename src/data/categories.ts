@@ -39,11 +39,11 @@ export const categories: Category[] = [
   {
     slug: 'amethyst',
     name: 'Amethyst',
-    description: 'Amethyst, the gemstone of sobriety and clarity, ranges from pale lavender to deep royal purple. Once reserved for royalty, this stunning variety of quartz is now beloved by gem collectors worldwide. Brazilian and Uruguayan amethysts offer the finest color saturation.',
+    description: 'Amethyst, the February birthstone, ranges from pale lavender to deep royal purple. Our collection features natural untreated amethysts from Brazil in round, oval, cushion, pear, marquise, trillion, emerald cut, fancy, and flower cut shapes.',
     imageUrl: '/images/amethyst.jpg',
-    productCount: 5,
+    productCount: 24,
     bestSellerPercent: 18,
-    colors: ['Purple', 'Lavender', 'Deep Purple'],
+    colors: ['Violet', 'Purple', 'Lavender'],
   },
   {
     slug: 'topaz',
@@ -66,11 +66,11 @@ export const categories: Category[] = [
   {
     slug: 'tourmaline',
     name: 'Tourmaline',
-    description: 'Tourmaline is the most colorful gemstone family, occurring in virtually every shade of the rainbow. Paraíba tourmalines with their electric neon blue-green are among the rarest and most valuable. Our collection features extraordinary tourmalines in every color.',
+    description: 'Tourmaline is the most colorful gemstone family, occurring in virtually every shade of the rainbow. Our collection includes green, pink, bi-color, blue, black, and purple tourmalines from Mozambique and Tanzania in emerald cut, oval, pear, cushion, flower cut, and fancy shapes.',
     imageUrl: '/images/tourmaline.jpg',
-    productCount: 6,
+    productCount: 24,
     bestSellerPercent: 14,
-    colors: ['Pink', 'Green', 'Blue', 'Watermelon', 'Paraíba'],
+    colors: ['Green', 'Pink', 'Bi-color', 'Blue', 'Black', 'Purple'],
   },
   {
     slug: 'opal',
@@ -111,11 +111,11 @@ export const categories: Category[] = [
   {
     slug: 'citrine',
     name: 'Citrine',
-    description: 'Citrine, the gemstone of abundance and warmth, ranges from pale lemon to deep amber. As a variety of quartz, it offers exceptional clarity and brilliant yellow tones. Brazilian citrines are particularly prized for their rich honey-gold color.',
+    description: 'Citrine, the gemstone of abundance and warmth, ranges from pale lemon to deep amber. As a variety of quartz, it offers exceptional clarity and brilliant yellow tones. Our collection includes natural untreated citrine from Brazil and Bolivia in round, oval, pear, cushion, trillion, marquise, and emerald cuts.',
     imageUrl: '/images/citrine.jpg',
-    productCount: 4,
+    productCount: 24,
     bestSellerPercent: 10,
-    colors: ['Yellow', 'Golden', 'Amber', 'Lemon'],
+    colors: ['Yellow', 'Golden', 'Orange', 'Amber'],
   },
   {
     slug: 'moonstone',
