@@ -1,16 +1,12 @@
 import { Link } from 'react-router-dom'
-import { Home } from 'lucide-react'
 
 export default function NotFound() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-24 text-center">
-      <h1 className="text-6xl font-bold text-text-secondary/30 mb-4">404</h1>
-      <h2 className="text-2xl font-bold mb-2">Page Not Found</h2>
-      <p className="text-text-secondary mb-6">The page you're looking for doesn't exist or has been moved.</p>
-      <Link to="/"
-        className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors">
-        <Home size={18} /> Back to Home
-      </Link>
+    <div className="cart-wrap" style={{textAlign: 'center', padding: '80px 0'}}>
+      <h1 style={{fontSize: 48, color: '#ccc', marginBottom: 10}}>404</h1>
+      <h2 style={{fontSize: 22, fontWeight: 'bold', marginBottom: 8}}>Page Not Found</h2>
+      <p style={{color: '#666', marginBottom: 20}}>The page you&apos;re looking for doesn&apos;t exist or has been moved.</p>
+      <Link to="/" className="gs-btn">Back to Home</Link>
     </div>
   )
 }

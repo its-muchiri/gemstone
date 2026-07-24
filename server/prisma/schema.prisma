@@ -1,0 +1,138 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING
+  AWAITING_PAYMENT
+  PAID
+  FAILED
+  CANCELLED
+  FULFILLED
+}
+
+enum PaymentProvider {
+  NOWPAYMENTS
+  MPESA
+}
+
+enum PaymentStatus {
+  WAITING
+  CONFIRMING
+  CONFIRMED
+  FINISHED
+  FAILED
+  EXPIRED
+  REFUNDED
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String
+  name          String?
+  phone         String?
+  role          Role      @default(CUSTOMER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  orders        Order[]
+  wishlistItems WishlistItem[]
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  description String?
+  products    Product[]
+}
+
+model Product {
+  id           String         @id @default(cuid())
+  sku          String         @unique
+  name         String
+  slug         String         @unique
+  categoryId   String
+  category     Category       @relation(fields: [categoryId], references: [id])
+  priceCents   Int
+  weightCarats Float
+  shape        String
+  color        String
+  clarity      String
+  treatment    String
+  origin       String
+  description  String
+  images       String[]
+  inStock      Boolean        @default(true)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  orderItems   OrderItem[]
+  wishlistedBy WishlistItem[]
+}
+
+model WishlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+}
+
+model Order {
+  id              String        @id @default(cuid())
+  userId          String
+  user            User          @relation(fields: [userId], references: [id])
+  status          OrderStatus   @default(PENDING)
+  subtotalCents   Int
+  shippingCents   Int
+  totalCents      Int
+  currency        String        @default("USD")
+  shippingAddress Json
+  items           OrderItem[]
+  payment         Payment?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model OrderItem {
+  id                   String  @id @default(cuid())
+  orderId              String
+  order                Order   @relation(fields: [orderId], references: [id])
+  productId            String
+  product              Product @relation(fields: [productId], references: [id])
+  quantity             Int
+  priceCentsAtPurchase Int
+}
+
+model Payment {
+  id                     String          @id @default(cuid())
+  orderId                String          @unique
+  order                  Order           @relation(fields: [orderId], references: [id])
+  provider               PaymentProvider
+  status                 PaymentStatus   @default(WAITING)
+  amount                 Int
+  currency               String
+  nowpaymentsInvoiceId   String?         @unique
+  nowpaymentsPaymentId   String?
+  payAddress             String?
+  mpesaCheckoutRequestId String?         @unique
+  mpesaMerchantRequestId String?
+  mpesaReceiptNumber     String?
+  phoneNumber            String?
+  rawCallbackPayload     Json?
+  createdAt              DateTime        @default(now())
+  updatedAt              DateTime        @updatedAt
+}

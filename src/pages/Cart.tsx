@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Trash2, Plus, Minus, ShoppingCart, ArrowLeft, CheckCircle, ArrowRight } from 'lucide-react'
+import { ShoppingCart, ArrowLeft, CheckCircle, ArrowRight } from 'lucide-react'
 import { useCart } from '../context/CartContext.tsx'
 import { useCurrency } from '../context/CurrencyContext.tsx'
 
@@ -47,39 +47,33 @@ export default function Cart() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-2xl md:text-3xl font-bold mb-6">Shopping Cart ({totalItems} items)</h1>
+    <div className="cart-wrap">
+      <h1 style={{fontSize: 22, fontWeight: 'bold', marginBottom: 20}}>Shopping Cart ({totalItems} items)</h1>
 
       <div className="grid lg:grid-cols-3 gap-8">
         {/* Cart items */}
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2">
           {items.map(({ product, quantity }) => (
-            <div key={product.id} className="flex gap-4 bg-white border border-border rounded-lg p-4">
-              <Link to={`/product/${product.id}`} className="flex-shrink-0">
-                <img src={product.imageUrl} alt={product.name} className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-lg" />
+            <div key={product.id} className="cart-item">
+              <Link to={`/product/${product.id}`} style={{flexShrink: 0}}>
+                <img src={product.imageUrl} alt={product.name} style={{width: 80, height: 80, objectFit: 'contain'}} />
               </Link>
-              <div className="flex-1 min-w-0">
-                <Link to={`/product/${product.id}`} className="font-medium hover:text-primary transition-colors text-sm md:text-base line-clamp-1">
+              <div style={{minWidth: 0}}>
+                <Link to={`/product/${product.id}`} style={{fontWeight: 'bold', fontSize: 13, color: '#333'}}>
                   {product.name}
                 </Link>
-                <p className="text-xs text-text-secondary mt-0.5">{product.weightCarats} ct · {product.shape} · {product.origin}</p>
-                <p className="text-lg font-bold text-primary mt-1">{convert(product.price)}</p>
-                <div className="flex items-center justify-between mt-2">
-                  <div className="flex items-center border border-border rounded-lg">
-                    <button onClick={() => updateQuantity(product.id, quantity - 1)}
-                      className="px-2 py-1 hover:bg-surface rounded-l-lg transition-colors">
-                      <Minus size={14} />
-                    </button>
-                    <span className="px-3 py-1 text-sm font-medium">{quantity}</span>
-                    <button onClick={() => updateQuantity(product.id, quantity + 1)}
-                      className="px-2 py-1 hover:bg-surface rounded-r-lg transition-colors">
-                      <Plus size={14} />
-                    </button>
+                <p style={{fontSize: 12, color: '#666', marginTop: 2}}>{product.weightCarats} ct · {product.shape} · {product.origin}</p>
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 8}}>
+                  <div className="qty-wrap">
+                    <button onClick={() => updateQuantity(product.id, quantity - 1)}>-</button>
+                    <input type="text" value={quantity} readOnly />
+                    <button onClick={() => updateQuantity(product.id, quantity + 1)}>+</button>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm font-bold">{convert(product.price * quantity)}</span>
-                    <button onClick={() => removeItem(product.id)} className="text-red-400 hover:text-red-600 transition-colors">
-                      <Trash2 size={16} />
+                  <div style={{display: 'flex', alignItems: 'center', gap: 12}}>
+                    <span style={{fontSize: 15, fontWeight: 'bold', color: '#005334'}}>{convert(product.price * quantity)}</span>
+                    <button onClick={() => removeItem(product.id)}
+                      style={{background: 'none', border: 'none', color: '#999', cursor: 'pointer', fontSize: 18}}>
+                      ×
                     </button>
                   </div>
                 </div>
@@ -90,40 +84,37 @@ export default function Cart() {
 
         {/* Order summary */}
         <div>
-          <div className="bg-white border border-border rounded-lg p-6 sticky top-32">
-            <h2 className="font-bold text-lg mb-4">Order Summary</h2>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span className="text-text-secondary">Subtotal</span>
-                <span className="font-medium">{convert(subtotal)}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-text-secondary">Shipping</span>
-                <span className="font-medium">
-                  {shippingUsd === 0 ? (
-                    <span className="text-primary">Free</span>
-                  ) : (
-                    convert(shippingUsd)
-                  )}
-                </span>
-              </div>
-              {subtotal > 0 && subtotal <= convertRaw(FREE_SHIPPING_USD) && currency === 'USD' && (
-                <p className="text-xs text-text-secondary">Free shipping on orders over {convert(FREE_SHIPPING_USD)} USD</p>
-              )}
-              {subtotal > 0 && subtotal <= convertRaw(FREE_SHIPPING_USD) && currency !== 'USD' && (
-                <p className="text-xs text-text-secondary">Free shipping on orders over {convert(FREE_SHIPPING_USD)}</p>
-              )}
-              <hr className="border-border my-2" />
-              <div className="flex justify-between text-lg font-bold">
-                <span>Total</span>
-                <span className="text-primary">{convert(totalUsd)}</span>
-              </div>
+          <div className="cart-summary">
+            <h2>Order Summary</h2>
+            <div className="cart-summary-row">
+              <span>Subtotal</span>
+              <span style={{fontWeight: 'bold'}}>{convert(subtotal)}</span>
+            </div>
+            <div className="cart-summary-row">
+              <span>Shipping</span>
+              <span style={{fontWeight: 'bold'}}>
+                {shippingUsd === 0 ? (
+                  <span style={{color: '#005334'}}>Free</span>
+                ) : (
+                  convert(shippingUsd)
+                )}
+              </span>
+            </div>
+            {subtotal > 0 && subtotal <= convertRaw(FREE_SHIPPING_USD) && currency === 'USD' && (
+              <p style={{fontSize: 12, color: '#666', marginTop: 4}}>Free shipping on orders over {convert(FREE_SHIPPING_USD)} USD</p>
+            )}
+            {subtotal > 0 && subtotal <= convertRaw(FREE_SHIPPING_USD) && currency !== 'USD' && (
+              <p style={{fontSize: 12, color: '#666', marginTop: 4}}>Free shipping on orders over {convert(FREE_SHIPPING_USD)}</p>
+            )}
+            <div className="cart-summary-total">
+              <span>Total</span>
+              <span style={{color: '#005334'}}>{convert(totalUsd)}</span>
             </div>
             <button onClick={() => { setCheckedOut(true); clearCart() }}
-              className="w-full bg-primary text-white font-bold py-3 rounded-lg mt-4 hover:bg-primary-dark transition-colors">
+              className="gs-btn-cart" style={{width: '100%', marginTop: 16}}>
               Proceed to Checkout
             </button>
-            <Link to="/all-gemstones" className="block text-center text-sm text-primary mt-3 hover:underline">
+            <Link to="/all-gemstones" style={{display: 'block', textAlign: 'center', fontSize: 13, color: '#005334', marginTop: 12}}>
               Continue Shopping
             </Link>
           </div>

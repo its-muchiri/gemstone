@@ -6,56 +6,44 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-text-primary leading-tight mb-4">
-                Natural Loose Gemstones for Jewelry &amp; Collecting
-              </h1>
-              <h2 className="text-lg text-text-secondary mb-6">
-                Trusted by Jewelers, Designers, Collectors &amp; Gem Enthusiasts Worldwide
-              </h2>
-              <div className="flex flex-wrap gap-4 text-sm mb-6">
-                {['✔ Natural Gemstones', '✔ Since 2003', '✔ 130+ Gem Types', '✔ Worldwide Shipping', '✔ 30-Day Returns'].map(badge => (
-                  <span key={badge} className="text-text-secondary">{badge}</span>
-                ))}
-              </div>
-            </div>
-            <div className="rounded-lg overflow-hidden">
-              <img src="/images/gemselect-gemstones-for-sale.jpg" alt="Natural Gemstones for Sale" className="w-full object-cover" />
-            </div>
+      <section className="gs-hero">
+        <img src="/images/gemselect-gemstones-for-sale.jpg" alt="Natural Gemstones for Sale" />
+        <div className="gs-hero-overlay">
+          <h1>Natural Loose Gemstones for Jewelry &amp; Collecting</h1>
+          <p>Trusted by Jewelers, Designers, Collectors &amp; Gem Enthusiasts Worldwide</p>
+          <div style={{display: 'flex', flexWrap: 'wrap', gap: 16, marginTop: 16, fontSize: 14}}>
+            {['Natural Gemstones', 'Since 2003', '130+ Gem Types', 'Worldwide Shipping', '30-Day Returns'].map(badge => (
+              <span key={badge}>✔ {badge}</span>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Trust Strip */}
-      <section className="bg-primary/5 border-y border-border">
-        <div className="max-w-7xl mx-auto px-4 py-3">
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm">
-            <span className="flex items-center gap-1.5"><span className="text-primary font-bold">✔</span> Natural Gemstones</span>
-            <span className="flex items-center gap-1.5"><span className="text-primary font-bold">✔</span> Since 2003</span>
-            <span className="flex items-center gap-1.5"><span className="text-primary font-bold">✔</span> 130+ Gem Types</span>
-            <span className="flex items-center gap-1.5"><span className="text-primary font-bold">✔</span> Worldwide Shipping</span>
-            <span className="flex items-center gap-1.5"><span className="text-primary font-bold">✔</span> 30-Day Returns</span>
-          </div>
+      <div className="gs-trust-bar">
+        <div className="gs-trust-bar-item">
+          <img src="/images/m_report.png" alt="" />
+          <div><strong>Independent Gem Reports</strong><small>Included With Every Order</small></div>
         </div>
-      </section>
+        <div className="gs-trust-bar-item">
+          <img src="/images/m_worldwide.png" alt="" />
+          <div><strong>Worldwide Shipping</strong><small>Free &amp; Insured</small></div>
+        </div>
+        <div className="gs-trust-bar-item">
+          <img src="/images/m_return.png" alt="" />
+          <div><strong>30-Day Returns</strong><small>No Questions Asked</small></div>
+        </div>
+      </div>
 
       {/* Best Selling Gems */}
       <section className="max-w-7xl mx-auto px-4 py-8">
         <h3 className="text-lg font-bold mb-4 uppercase tracking-wide">Best Selling Gems - Last 30 Days</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-4">
+        <div className="gs-best-sellers-grid">
           {bestSellers.map(bs => (
             <Link key={bs.categorySlug} to={`/gemstones/${bs.categorySlug}`}
-              className="group relative rounded-lg overflow-hidden border border-border hover:shadow-md transition-shadow">
-              <img src={bs.imageUrl} alt={`${bs.name} Gemstones`} className="w-full aspect-[2/1] object-cover group-hover:scale-105 transition-transform duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
-                <span className="text-white font-medium text-sm">{bs.name}</span>
-              </div>
-              <div className="absolute top-2 right-2 bg-primary/90 text-white text-[10px] font-bold px-2 py-0.5 rounded">
-                {bs.bestSellerPercent}%
-              </div>
+              className="gs-best-seller-card">
+              <img src={bs.imageUrl} alt={`${bs.name} Gemstones`} />
+              <span>{bs.name}</span>
             </Link>
           ))}
         </div>
@@ -65,51 +53,18 @@ export default function Home() {
       <section className="bg-surface py-8">
         <div className="max-w-7xl mx-auto px-4">
           <h3 className="text-lg font-bold mb-4 uppercase tracking-wide">Certified Customer Reviews</h3>
-          <div className="grid md:grid-cols-3 gap-4">
-            {testimonials.slice(0, 3).map(t => (
-              <div key={t.id} className="bg-white rounded border border-border p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs text-text-secondary">Overall Rating →</span>
-                  <span className="text-sm font-bold text-primary">{t.rating}</span>
-                  <img src="/images/gs_rating_10.gif" alt="Rating" className="h-3" />
+          <div className="gs-testimonials">
+            {testimonials.slice(0, 9).map(t => (
+              <div key={t.id} className="gs-testimonial">
+                <div className="gs-testimonial-stars">
+                  <img src="/images/gs_rating_10.gif" alt="Rating" style={{height: 12}} />
+                  <span style={{fontSize: 13, fontWeight: 'bold', color: '#005334', marginLeft: 6}}>{t.rating}</span>
                 </div>
-                <p className="text-sm text-text-secondary mb-3 italic">&ldquo;{t.quote}&rdquo;</p>
-                <p className="text-xs text-text-secondary">
-                  Posted By <strong>{t.name}</strong> in {t.date}
+                <p className="gs-testimonial-text">&ldquo;{t.quote}&rdquo;</p>
+                <p className="gs-testimonial-author">
+                  Posted By {t.name} in {t.date}
                 </p>
-                <p className="text-xs text-text-secondary mt-1"><strong>Source:</strong> {t.source}</p>
-              </div>
-            ))}
-          </div>
-          <div className="grid md:grid-cols-3 gap-4 mt-4">
-            {testimonials.slice(3, 6).map(t => (
-              <div key={t.id} className="bg-white rounded border border-border p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs text-text-secondary">Overall Rating →</span>
-                  <span className="text-sm font-bold text-primary">{t.rating}</span>
-                  <img src="/images/gs_rating_10.gif" alt="Rating" className="h-3" />
-                </div>
-                <p className="text-sm text-text-secondary mb-3 italic">&ldquo;{t.quote}&rdquo;</p>
-                <p className="text-xs text-text-secondary">
-                  Posted By <strong>{t.name}</strong> in {t.date}
-                </p>
-                <p className="text-xs text-text-secondary mt-1"><strong>Source:</strong> {t.source}</p>
-              </div>
-            ))}
-          </div>
-          <div className="grid md:grid-cols-3 gap-4 mt-4">
-            {testimonials.slice(6, 9).map(t => (
-              <div key={t.id} className="bg-white rounded border border-border p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs text-text-secondary">Overall Rating →</span>
-                  <span className="text-sm font-bold text-primary">{t.rating}</span>
-                  <img src="/images/gs_rating_10.gif" alt="Rating" className="h-3" />
-                </div>
-                <p className="text-sm text-text-secondary mb-3 italic">&ldquo;{t.quote}&rdquo;</p>
-                <p className="text-xs text-text-secondary">
-                  Posted By <strong>{t.name}</strong> in {t.date}
-                </p>
-                <p className="text-xs text-text-secondary mt-1"><strong>Source:</strong> {t.source}</p>
+                <p style={{fontSize: 11, color: '#999', marginTop: 2}}>Source: {t.source}</p>
               </div>
             ))}
           </div>

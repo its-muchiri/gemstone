@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { ChevronRight, ShoppingCart, Heart, Truck, RotateCcw, Shield, Info, FileText, Package } from 'lucide-react'
+import { ShoppingCart, Heart, Truck, RotateCcw, Shield } from 'lucide-react'
 import { getProductById, products as allProducts } from '../data/products.ts'
 import { useCart } from '../context/CartContext.tsx'
 import { useWishlist } from '../context/WishlistContext.tsx'
@@ -35,154 +35,148 @@ export default function Product() {
   const thumbnails = [product.imageUrl, `${product.imageUrl}?v=2`, `${product.imageUrl}?v=3`]
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6">
-      <nav className="flex items-center gap-1 text-xs text-text-secondary mb-6">
-        <Link to="/" className="hover:text-primary">Home</Link>
-        <ChevronRight size={12} />
-        <Link to={`/gemstones/${product.category}`} className="hover:text-primary capitalize">{product.category}</Link>
-        <ChevronRight size={12} />
-        <span className="text-text-primary font-medium">{product.name}</span>
-      </nav>
+    <div className="gem-detail-wrap">
+      <div className="gs-breadcrumbs">
+        <Link to="/">Home</Link> <span>/</span>
+        <Link to={`/gemstones/${product.category}`} className="capitalize">{product.category}</Link> <span>/</span>
+        <strong>{product.name}</strong>
+      </div>
 
       <div className="grid md:grid-cols-2 gap-8 mb-12">
         {/* Image gallery */}
         <div>
-          <div className="rounded-xl overflow-hidden border border-border bg-surface mb-3">
-            <img src={thumbnails[mainImg]} alt={product.name} className="w-full aspect-square object-cover" />
+          <div style={{border: '1px solid #ddd', padding: 8, background: '#fafafa', marginBottom: 10}}>
+            <img src={thumbnails[mainImg]} alt={product.name}
+              className="gem-detail-img" />
           </div>
-          <div className="flex gap-2">
+          <div style={{display: 'flex', gap: 6}}>
             {thumbnails.map((img, i) => (
               <button key={i} onClick={() => setMainImg(i)}
-                className={`w-16 h-16 rounded overflow-hidden border-2 transition-colors ${i === mainImg ? 'border-primary' : 'border-border hover:border-text-secondary'}`}>
-                <img src={img} alt="" className="w-full h-full object-cover" />
+                style={{
+                  width: 60, height: 60, border: i === mainImg ? '2px solid #005334' : '1px solid #ddd',
+                  background: '#fff', padding: 2, cursor: 'pointer', borderRadius: 2
+                }}>
+                <img src={img} alt="" style={{width: '100%', height: '100%', objectFit: 'contain'}} />
               </button>
             ))}
           </div>
         </div>
 
         {/* Product info */}
-        <div>
-          <h1 className="text-2xl md:text-3xl font-bold mb-1">{product.name}</h1>
-          <p className="text-sm text-text-secondary mb-4">SKU: {product.id.toUpperCase()}</p>
+        <div className="gem-detail-info">
+          <h1 className="gem-detail-title">{product.name}</h1>
+          <p style={{fontSize: 12, color: '#999', marginBottom: 8}}>SKU: {product.id.toUpperCase()}</p>
+          <p className="gem-detail-price">{convert(product.price)}</p>
 
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-3xl font-bold text-primary">{convert(product.price)}</span>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 mb-6 text-sm">
-            <div className="bg-surface rounded-lg p-3">
-              <span className="text-text-secondary text-xs">Weight</span>
-              <p className="font-medium">{product.weightCarats} ct</p>
-            </div>
-            <div className="bg-surface rounded-lg p-3">
-              <span className="text-text-secondary text-xs">Shape</span>
-              <p className="font-medium">{product.shape}</p>
-            </div>
-            <div className="bg-surface rounded-lg p-3">
-              <span className="text-text-secondary text-xs">Color</span>
-              <p className="font-medium">{product.color}</p>
-            </div>
-            <div className="bg-surface rounded-lg p-3">
-              <span className="text-text-secondary text-xs">Clarity</span>
-              <p className="font-medium">{product.clarity}</p>
-            </div>
-            <div className="bg-surface rounded-lg p-3">
-              <span className="text-text-secondary text-xs">Treatment</span>
-              <p className="font-medium">{product.treatment}</p>
-            </div>
-            <div className="bg-surface rounded-lg p-3">
-              <span className="text-text-secondary text-xs">Origin</span>
-              <p className="font-medium">{product.origin}</p>
-            </div>
-          </div>
+          <table className="gem-detail-specs">
+            <tbody>
+              <tr><td>Weight</td><td>{product.weightCarats} ct</td></tr>
+              <tr><td>Shape</td><td>{product.shape}</td></tr>
+              <tr><td>Color</td><td>{product.color}</td></tr>
+              <tr><td>Clarity</td><td>{product.clarity}</td></tr>
+              <tr><td>Treatment</td><td>{product.treatment}</td></tr>
+              <tr><td>Origin</td><td>{product.origin}</td></tr>
+            </tbody>
+          </table>
 
           {/* Quantity + actions */}
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-sm font-medium">Quantity:</span>
-            <div className="flex items-center border border-border rounded-lg">
-              <button onClick={() => setQty(Math.max(1, qty - 1))} className="px-3 py-1.5 text-lg hover:bg-surface rounded-l-lg transition-colors">−</button>
-              <span className="px-4 py-1.5 text-sm font-medium min-w-[3rem] text-center">{qty}</span>
-              <button onClick={() => setQty(qty + 1)} className="px-3 py-1.5 text-lg hover:bg-surface rounded-r-lg transition-colors">+</button>
+          <div style={{display: 'flex', alignItems: 'center', gap: 12, marginTop: 16, marginBottom: 16}}>
+            <span style={{fontSize: 13, fontWeight: 'bold'}}>Quantity:</span>
+            <div className="qty-wrap">
+              <button onClick={() => setQty(Math.max(1, qty - 1))}>-</button>
+              <input type="text" value={qty} readOnly />
+              <button onClick={() => setQty(qty + 1)}>+</button>
             </div>
           </div>
 
-          <div className="flex gap-3 mb-6">
+          <div style={{display: 'flex', gap: 10, marginBottom: 20}}>
             <button onClick={() => addItem(product, qty)}
               disabled={!product.inStock}
-              className="flex-1 bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary-dark transition-colors disabled:opacity-50 flex items-center justify-center gap-2">
-              <ShoppingCart size={18} /> Add to Cart
+              className="gs-btn-cart"
+              style={{flex: 1}}>
+              Add to Cart
             </button>
             <button onClick={() => inWish ? removeWishlist(product.id) : addWishlist(product)}
-              className={`px-4 py-3 rounded-lg border-2 transition-colors ${inWish ? 'border-gold bg-gold/10 text-gold' : 'border-border hover:border-primary hover:text-primary'}`}>
-              <Heart size={18} fill={inWish ? 'currentColor' : 'none'} />
+              style={{
+                width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                border: inWish ? '2px solid #005334' : '1px solid #ccc', borderRadius: 4,
+                background: inWish ? '#e6f5ec' : '#fff', color: inWish ? '#005334' : '#999', cursor: 'pointer'
+              }}>
+              <Heart size={20} fill={inWish ? 'currentColor' : 'none'} />
             </button>
           </div>
 
           {/* Trust badges */}
-          <div className="grid grid-cols-3 gap-3 text-center text-xs">
-            <div className="bg-surface rounded-lg p-2">
-              <Truck size={16} className="mx-auto mb-1 text-primary" />
-              <p className="font-medium">Free Shipping</p>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, fontSize: 12, textAlign: 'center'}}>
+            <div style={{background: '#f5f8f5', padding: '8px 4px', borderRadius: 3}}>
+              <Truck size={18} style={{color: '#005334', margin: '0 auto 4px'}} />
+              <p style={{fontWeight: 'bold'}}>Free Shipping</p>
             </div>
-            <div className="bg-surface rounded-lg p-2">
-              <RotateCcw size={16} className="mx-auto mb-1 text-primary" />
-              <p className="font-medium">30-Day Returns</p>
+            <div style={{background: '#f5f8f5', padding: '8px 4px', borderRadius: 3}}>
+              <RotateCcw size={18} style={{color: '#005334', margin: '0 auto 4px'}} />
+              <p style={{fontWeight: 'bold'}}>30-Day Returns</p>
             </div>
-            <div className="bg-surface rounded-lg p-2">
-              <Shield size={16} className="mx-auto mb-1 text-primary" />
-              <p className="font-medium">Guaranteed</p>
+            <div style={{background: '#f5f8f5', padding: '8px 4px', borderRadius: 3}}>
+              <Shield size={18} style={{color: '#005334', margin: '0 auto 4px'}} />
+              <p style={{fontWeight: 'bold'}}>Guaranteed</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="border-b border-border mb-6">
-        <div className="flex gap-0">
+      <div style={{borderBottom: '1px solid #ddd', marginBottom: 20}}>
+        <div style={{display: 'flex', gap: 0}}>
           {[
-            { key: 'description', label: 'Description', icon: Info },
-            { key: 'certification', label: 'Certification', icon: FileText },
-            { key: 'shipping', label: 'Shipping', icon: Package },
+            { key: 'description', label: 'Description' },
+            { key: 'certification', label: 'Certification' },
+            { key: 'shipping', label: 'Shipping' },
           ].map(tab => (
             <button key={tab.key} onClick={() => setActiveTab(tab.key)}
-              className={`flex items-center gap-1.5 px-5 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === tab.key ? 'border-primary text-primary' : 'border-transparent text-text-secondary hover:text-text-primary'}`}>
-              <tab.icon size={16} /> {tab.label}
+              style={{
+                padding: '10px 20px', fontSize: 13, fontWeight: 'bold', background: 'none', border: 'none',
+                borderBottom: activeTab === tab.key ? '2px solid #005334' : '2px solid transparent',
+                color: activeTab === tab.key ? '#005334' : '#666', cursor: 'pointer'
+              }}>
+              {tab.label}
             </button>
           ))}
         </div>
       </div>
 
-      <div className="mb-12">
+      <div style={{marginBottom: 40}}>
         {activeTab === 'description' && (
-          <div className="max-w-2xl">
-            <p className="text-text-secondary leading-relaxed">{product.description}</p>
-            <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
-              <div><span className="font-medium">Category:</span> <span className="capitalize">{product.category}</span></div>
-              <div><span className="font-medium">Weight:</span> {product.weightCarats} carats</div>
-              <div><span className="font-medium">Shape:</span> {product.shape}</div>
-              <div><span className="font-medium">Color:</span> {product.color}</div>
-              <div><span className="font-medium">Clarity:</span> {product.clarity}</div>
-              <div><span className="font-medium">Treatment:</span> {product.treatment}</div>
-              <div><span className="font-medium">Origin:</span> {product.origin}</div>
-            </div>
+          <div style={{maxWidth: 700}}>
+            <p style={{fontSize: 13, color: '#555', lineHeight: 1.7}}>{product.description}</p>
+            <table className="gem-detail-specs" style={{marginTop: 16}}>
+              <tbody>
+                <tr><td>Category</td><td className="capitalize">{product.category}</td></tr>
+                <tr><td>Weight</td><td>{product.weightCarats} carats</td></tr>
+                <tr><td>Shape</td><td>{product.shape}</td></tr>
+                <tr><td>Color</td><td>{product.color}</td></tr>
+                <tr><td>Clarity</td><td>{product.clarity}</td></tr>
+                <tr><td>Treatment</td><td>{product.treatment}</td></tr>
+                <tr><td>Origin</td><td>{product.origin}</td></tr>
+              </tbody>
+            </table>
           </div>
         )}
         {activeTab === 'certification' && (
-          <div className="max-w-2xl">
-            <p className="text-text-secondary leading-relaxed mb-3">
+          <div style={{maxWidth: 700}}>
+            <p style={{fontSize: 13, color: '#555', lineHeight: 1.7, marginBottom: 10}}>
               Premium gemstones from GemSelect may come with an independent gemological laboratory report from GIA, GRS, Gübelin, or SSEF. The report verifies the gemstone's identity, weight, measurements, color, clarity, treatment status, and origin (when determinable).
             </p>
-            <p className="text-text-secondary leading-relaxed">
+            <p style={{fontSize: 13, color: '#555', lineHeight: 1.7}}>
               For this {product.name}, treatment status is listed as <strong>{product.treatment}</strong>. All gemstones are sold with our lifetime authenticity guarantee. If any gemstone is ever found to be misrepresented, we will provide a full refund.
             </p>
           </div>
         )}
         {activeTab === 'shipping' && (
-          <div className="max-w-2xl">
-            <p className="text-text-secondary leading-relaxed mb-3">
+          <div style={{maxWidth: 700}}>
+            <p style={{fontSize: 13, color: '#555', lineHeight: 1.7, marginBottom: 10}}>
               All orders are shipped from our Bangkok, Thailand office via insured, tracked international carriers.
             </p>
-            <ul className="text-sm text-text-secondary space-y-1 list-disc list-inside">
+            <ul style={{fontSize: 13, color: '#555', paddingLeft: 20, lineHeight: 2}}>
               <li>Express Shipping: $29.90, 2-5 business days (fully insured, tracked)</li>
               <li>International Standard: $8.90, 10-21 business days (insured, tracked)</li>
               <li>Free shipping available on qualifying orders over $500 USD</li>
@@ -196,8 +190,8 @@ export default function Product() {
       {/* Related products */}
       {related.length > 0 && (
         <div>
-          <h2 className="text-xl font-bold mb-4">You May Also Like</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <h2 style={{fontSize: 18, fontWeight: 'bold', marginBottom: 16}}>You May Also Like</h2>
+          <div className="product-grid">
             {related.map(p => <ProductCard key={p.id} product={p} />)}
           </div>
         </div>

@@ -1,0 +1,18 @@
+{
+  "/api/admin/orders/[id]/route": "app/api/admin/orders/[id]/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/admin/orders/route": "app/api/admin/orders/route.js",
+  "/api/checkout/mpesa/route": "app/api/checkout/mpesa/route.js",
+  "/api/cart/route": "app/api/cart/route.js",
+  "/api/admin/products/route": "app/api/admin/products/route.js",
+  "/api/categories/route": "app/api/categories/route.js",
+  "/api/checkout/nowpayments/route": "app/api/checkout/nowpayments/route.js",
+  "/api/products/[slug]/route": "app/api/products/[slug]/route.js",
+  "/api/orders/route": "app/api/orders/route.js",
+  "/api/orders/[id]/route": "app/api/orders/[id]/route.js",
+  "/api/products/route": "app/api/products/route.js",
+  "/api/webhooks/mpesa/route": "app/api/webhooks/mpesa/route.js",
+  "/api/register/route": "app/api/register/route.js",
+  "/api/webhooks/nowpayments/route": "app/api/webhooks/nowpayments/route.js",
+  "/api/wishlist/route": "app/api/wishlist/route.js"
+}

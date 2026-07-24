@@ -27,36 +27,31 @@ export default function Search() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <form onSubmit={handleSubmit} className="flex items-center gap-3 mb-6 max-w-xl">
-        <div className="relative flex-1">
-          <input
-            type="text"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Search gemstones, colors, origins..."
-            className="w-full border border-border rounded-full px-4 py-2 pr-10 text-sm focus:outline-none focus:border-primary"
-          />
-          <button type="submit" className="absolute right-3 top-1/2 -translate-y-1/2 text-text-secondary hover:text-primary">
-            <SearchIcon size={18} />
-          </button>
-        </div>
+    <div className="cart-wrap">
+      <form onSubmit={handleSubmit} style={{display: 'flex', gap: 10, marginBottom: 20}}>
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Search gemstones, colors, origins..."
+          style={{flex: 1, padding: '8px 12px', border: '1px solid #ccc', borderRadius: 3, fontSize: 14}}
+        />
+        <button type="submit" className="gs-btn" style={{padding: '8px 20px', fontSize: 13}}>
+          Search
+        </button>
       </form>
 
-      <div className="flex items-center gap-2 mb-6">
-        <SearchIcon size={20} className="text-text-secondary" />
-        <h1 className="text-2xl font-bold">
-          Search Results for "{query}"
-        </h1>
-      </div>
+      <h1 style={{fontSize: 20, fontWeight: 'bold', marginBottom: 16}}>
+        Search Results for &quot;{query}&quot;
+      </h1>
 
       {matchedCategories.length > 0 && (
-        <div className="mb-6">
-          <h2 className="text-sm font-medium text-text-secondary mb-2">Matching Categories</h2>
-          <div className="flex flex-wrap gap-2">
+        <div style={{marginBottom: 20}}>
+          <h2 style={{fontSize: 13, fontWeight: 'bold', color: '#666', marginBottom: 8}}>Matching Categories</h2>
+          <div style={{display: 'flex', flexWrap: 'wrap', gap: 8}}>
             {matchedCategories.map(c => (
               <Link key={c.slug} to={`/gemstones/${c.slug}`}
-                className="bg-surface border border-border rounded-full px-4 py-1.5 text-sm hover:bg-primary/10 hover:border-primary transition-colors">
+                style={{padding: '4px 12px', border: '1px solid #ddd', borderRadius: 3, fontSize: 13, color: '#333', textDecoration: 'none'}}>
                 {c.name}
               </Link>
             ))}
@@ -66,30 +61,30 @@ export default function Search() {
 
       {results.length > 0 ? (
         <>
-          <p className="text-sm text-text-secondary mb-4">{results.length} gemstones found</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+          <p style={{fontSize: 13, color: '#666', marginBottom: 12}}>{results.length} gemstones found</p>
+          <div className="product-grid">
             {results.map(p => <ProductCard key={p.id} product={p} />)}
           </div>
         </>
       ) : (
-        <div className="text-center py-16">
-          <SearchIcon size={48} className="text-text-secondary/30 mx-auto mb-4" />
-          <h2 className="text-xl font-bold mb-2">No Results Found</h2>
-          <p className="text-text-secondary mb-6">
-            We couldn't find any gemstones matching "{query}". Try a different search term.
+        <div style={{textAlign: 'center', padding: '60px 0'}}>
+          <SearchIcon size={40} style={{color: '#ccc', margin: '0 auto 12px'}} />
+          <h2 style={{fontSize: 18, fontWeight: 'bold', marginBottom: 8}}>No Results Found</h2>
+          <p style={{color: '#666', marginBottom: 20}}>
+            We couldn&apos;t find any gemstones matching &quot;{query}&quot;. Try a different search term.
           </p>
-          <div className="mb-4">
-            <p className="text-sm text-text-secondary mb-2">Popular searches:</p>
-            <div className="flex flex-wrap justify-center gap-2">
+          <div style={{marginBottom: 16}}>
+            <p style={{fontSize: 13, color: '#666', marginBottom: 8}}>Popular searches:</p>
+            <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 8}}>
               {['Sapphire', 'Ruby', 'Emerald', 'Blue', 'Natural', 'Ceylon'].map(term => (
                 <Link key={term} to={`/search?q=${term.toLowerCase()}`}
-                  className="bg-surface border border-border rounded-full px-4 py-1.5 text-sm hover:bg-primary/10 hover:border-primary transition-colors">
+                  style={{padding: '4px 12px', border: '1px solid #ddd', borderRadius: 3, fontSize: 13, color: '#333', textDecoration: 'none'}}>
                   {term}
                 </Link>
               ))}
             </div>
           </div>
-          <Link to="/all-gemstones" className="text-primary hover:underline text-sm">Browse All Gemstones →</Link>
+          <Link to="/all-gemstones" style={{color: '#005334', textDecoration: 'underline', fontSize: 13}}>Browse All Gemstones</Link>
         </div>
       )}
     </div>

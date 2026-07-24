@@ -1,0 +1,37 @@
+{
+  "name": "gemstore-server",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3001",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:migrate": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "db:seed": "prisma db seed",
+    "db:studio": "prisma studio",
+    "postinstall": "prisma generate"
+  },
+  "dependencies": {
+    "@next-auth/prisma-adapter": "^1.0.7",
+    "@next/swc-win32-x64-msvc": "^16.2.11",
+    "@prisma/client": "^5.15.0",
+    "bcryptjs": "^2.4.3",
+    "next": "^14.2.0",
+    "next-auth": "^4.24.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.0",
+    "prisma": "^5.15.0",
+    "typescript": "^5.5.0"
+  }
+}

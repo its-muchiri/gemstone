@@ -12,36 +12,38 @@ export default function ProductCard({ product }: { product: Product }) {
   const inWish = isInWishlist(product.id)
 
   return (
-    <div className="bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow group overflow-hidden">
-      <Link to={`/product/${product.id}`} className="block relative overflow-hidden">
+    <div className="product-tile">
+      <Link to={`/product/${product.id}`} className="block relative">
         <img src={product.imageUrl} alt={product.name}
-          className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+          className="product-tile-img" />
         {!product.inStock && (
-          <span className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded">Out of Stock</span>
+          <span className="absolute top-2 left-2 bg-red-500 text-white text-[10px] px-2 py-0.5 rounded">Out of Stock</span>
         )}
         {product.treatment === 'Natural / Untreated' && (
-          <span className="absolute top-2 right-2 bg-primary/90 text-white text-xs px-2 py-0.5 rounded">Natural</span>
+          <span className="absolute top-2 right-2 bg-primary text-white text-[10px] px-2 py-0.5 rounded">Natural</span>
         )}
       </Link>
-      <div className="p-3">
-        <Link to={`/product/${product.id}`}>
-          <h3 className="text-sm font-medium line-clamp-2 hover:text-primary transition-colors min-h-[2.5rem]">{product.name}</h3>
-        </Link>
-        <p className="text-xs text-text-secondary mt-1">{product.weightCarats} ct · {product.shape} · {product.origin}</p>
-        <div className="mt-2 flex items-center justify-between">
-          <span className="text-lg font-bold text-primary">{convert(product.price)}</span>
-        </div>
-        <div className="mt-2 flex items-center gap-2">
-          <button onClick={() => addItem(product)}
-            disabled={!product.inStock}
-            className="flex-1 bg-primary text-white text-xs py-1.5 rounded hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-1">
-            <ShoppingCart size={14} /> Add to Cart
-          </button>
-          <button onClick={() => inWish ? removeWishlist(product.id) : addWishlist(product)}
-            className={`p-1.5 rounded border transition-colors ${inWish ? 'bg-gold/10 border-gold text-gold' : 'border-border hover:border-primary hover:text-primary'}`}>
-            <Heart size={14} fill={inWish ? 'currentColor' : 'none'} />
-          </button>
-        </div>
+      <Link to={`/product/${product.id}`} className="product-tile-name">
+        {product.name}
+      </Link>
+      <span className="product-tile-carat">{product.weightCarats} ct · {product.shape} · {product.origin}</span>
+      <span className="product-tile-price">{convert(product.price)}</span>
+      <div style={{display: 'flex', gap: 6, marginTop: 8, padding: '0 4px'}}>
+        <button onClick={() => addItem(product)}
+          disabled={!product.inStock}
+          className="gs-btn"
+          style={{flex: 1, padding: '7px 10px', fontSize: 12, textAlign: 'center', borderRadius: 3}}>
+          <ShoppingCart size={12} style={{display: 'inline', marginRight: 4}} /> Add
+        </button>
+        <button onClick={() => inWish ? removeWishlist(product.id) : addWishlist(product)}
+          style={{
+            width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center',
+            border: inWish ? '1px solid #005334' : '1px solid #ccc',
+            borderRadius: 3, background: inWish ? '#e6f5ec' : '#fff',
+            color: inWish ? '#005334' : '#999', cursor: 'pointer', padding: 0
+          }}>
+          <Heart size={14} fill={inWish ? 'currentColor' : 'none'} />
+        </button>
       </div>
     </div>
   )

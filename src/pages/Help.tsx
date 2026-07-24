@@ -127,24 +127,29 @@ export default function Help() {
   ]
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <nav className="flex items-center gap-1 text-xs text-text-secondary mb-6">
-        <Link to="/" className="hover:text-primary">Home</Link>
-        <ChevronRight size={12} />
-        <span className="text-text-primary font-medium">Help</span>
-      </nav>
+    <div className="gem-detail-wrap">
+      <div className="gs-breadcrumbs">
+        <Link to="/">Home</Link> <span>/</span>
+        <strong>Help</strong>
+      </div>
 
       <div className="grid md:grid-cols-4 gap-8">
         <nav className="md:col-span-1">
-          <div className="bg-white border border-border rounded p-4 sticky top-24">
-            <h3 className="font-bold text-sm mb-3 flex items-center gap-1.5">
-              <HelpCircle size={16} /> Help Topics
+          <div className="gs-sidebar" style={{position: 'sticky', top: 100}}>
+            <h3 style={{display: 'flex', alignItems: 'center', gap: 6}}>
+              <HelpCircle size={14} /> Help Topics
             </h3>
-            <ul className="space-y-1">
+            <ul style={{listStyle: 'none', padding: 0, marginTop: 10}}>
               {links.map(l => (
-                <li key={l.slug}>
+                <li key={l.slug} style={{marginBottom: 2}}>
                   <Link to={l.slug ? `/help/${l.slug}` : '/help'}
-                    className={`block py-1.5 px-2 text-sm rounded transition-colors ${(!topic && !l.slug) || topic === l.slug ? 'bg-primary/10 text-primary font-medium' : 'text-text-secondary hover:bg-surface'}`}>
+                    style={{
+                      display: 'block', padding: '6px 10px', fontSize: 13, textDecoration: 'none',
+                      borderRadius: 3,
+                      background: (!topic && !l.slug) || topic === l.slug ? '#e6f5ec' : 'transparent',
+                      color: (!topic && !l.slug) || topic === l.slug ? '#005334' : '#555',
+                      fontWeight: (!topic && !l.slug) || topic === l.slug ? 'bold' : 'normal'
+                    }}>
                     {l.label}
                   </Link>
                 </li>
@@ -155,17 +160,17 @@ export default function Help() {
 
         <div className="md:col-span-3">
           {showNotFound ? (
-            <div className="bg-white border border-border rounded p-6 md:p-8 text-center">
-              <h1 className="text-2xl font-bold mb-2">Page Not Found</h1>
-              <p className="text-text-secondary mb-4">
+            <div style={{background: '#fff', border: '1px solid #eee', padding: 24, textAlign: 'center'}}>
+              <h1 style={{fontSize: 20, fontWeight: 'bold', marginBottom: 8}}>Page Not Found</h1>
+              <p style={{color: '#666', marginBottom: 12}}>
                 The help topic &quot;{topic}&quot; doesn&apos;t exist. Please choose from the topics on the left.
               </p>
-              <Link to="/help" className="text-primary hover:underline text-sm">← Back to Help Center</Link>
+              <Link to="/help" style={{color: '#005334', textDecoration: 'underline', fontSize: 13}}>Back to Help Center</Link>
             </div>
           ) : (
-            <div className="bg-white border border-border rounded p-6 md:p-8">
-              <h1 className="text-2xl font-bold mb-6">{data.title}</h1>
-              <div className="text-text-secondary leading-relaxed whitespace-pre-line">
+            <div style={{background: '#fff', border: '1px solid #eee', padding: 24}}>
+              <h1 style={{fontSize: 20, fontWeight: 'bold', marginBottom: 16}}>{data.title}</h1>
+              <div style={{fontSize: 13, color: '#555', lineHeight: 1.8, whiteSpace: 'pre-line'}}>
                 {data.content}
               </div>
             </div>
@@ -173,38 +178,41 @@ export default function Help() {
 
           {topic === 'contact' && (
             <>
-              <div className="mt-6 bg-surface rounded p-6 grid sm:grid-cols-3 gap-4 text-center">
+              <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginTop: 20, background: '#f5f8f5', padding: 20, textAlign: 'center'}}>
                 <div>
-                  <Phone size={24} className="text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">Phone</p>
-                  <p className="text-xs text-text-secondary">1-800-464-1640</p>
-                  <p className="text-xs text-text-secondary">+66-39601289</p>
+                  <Phone size={22} style={{color: '#005334', margin: '0 auto 6px'}} />
+                  <p style={{fontSize: 13, fontWeight: 'bold'}}>Phone</p>
+                  <p style={{fontSize: 12, color: '#666'}}>1-800-464-1640</p>
+                  <p style={{fontSize: 12, color: '#666'}}>+66-39601289</p>
                 </div>
                 <div>
-                  <Mail size={24} className="text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">Email</p>
-                  <p className="text-xs text-text-secondary">help@gemselect.com</p>
+                  <Mail size={22} style={{color: '#005334', margin: '0 auto 6px'}} />
+                  <p style={{fontSize: 13, fontWeight: 'bold'}}>Email</p>
+                  <p style={{fontSize: 12, color: '#666'}}>help@gemselect.com</p>
                 </div>
                 <div>
-                  <MapPin size={24} className="text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium">Address</p>
-                  <p className="text-xs text-text-secondary">183/24-25 Moo 4, Chanthaburi 22000, THAILAND</p>
+                  <MapPin size={22} style={{color: '#005334', margin: '0 auto 6px'}} />
+                  <p style={{fontSize: 13, fontWeight: 'bold'}}>Address</p>
+                  <p style={{fontSize: 12, color: '#666'}}>183/24-25 Moo 4, Chanthaburi 22000, THAILAND</p>
                 </div>
               </div>
 
-              <div className="mt-6 bg-white border border-border rounded p-6">
-                <h3 className="font-bold text-sm mb-4">Send Us a Message</h3>
+              <div style={{marginTop: 20, background: '#fff', border: '1px solid #eee', padding: 20}}>
+                <h3 style={{fontSize: 14, fontWeight: 'bold', marginBottom: 12}}>Send Us a Message</h3>
                 {sent ? (
-                  <p className="text-primary font-medium">Thank you! Your message has been sent. We&apos;ll get back to you within 24 hours.</p>
+                  <p style={{color: '#005334', fontWeight: 'bold', fontSize: 13}}>Thank you! Your message has been sent. We&apos;ll get back to you within 24 hours.</p>
                 ) : (
-                  <form onSubmit={(e) => { e.preventDefault(); setSent(true) }} className="space-y-3">
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Your email" required
-                      className="w-full border border-border rounded px-3 py-2 text-sm" />
-                    <textarea value={message} onChange={(e) => setMessage(e.target.value)}
-                      placeholder="Your message" required rows={4}
-                      className="w-full border border-border rounded px-3 py-2 text-sm resize-none" />
-                    <button type="submit" className="bg-primary text-white px-6 py-2 rounded text-sm font-medium hover:bg-primary-dark transition-colors">
+                  <form onSubmit={(e) => { e.preventDefault(); setSent(true) }}>
+                    <div className="gs-form-group">
+                      <label>Your Email</label>
+                      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Your email" required />
+                    </div>
+                    <div className="gs-form-group">
+                      <label>Your Message</label>
+                      <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Your message" required rows={4}
+                        style={{resize: 'none'}} />
+                    </div>
+                    <button type="submit" className="gs-btn" style={{padding: '8px 24px', fontSize: 13}}>
                       Send Message
                     </button>
                   </form>

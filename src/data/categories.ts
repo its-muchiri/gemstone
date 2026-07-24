@@ -48,11 +48,11 @@ export const categories: Category[] = [
   {
     slug: 'topaz',
     name: 'Topaz',
-    description: 'Topaz occurs in a rainbow of colors, from imperial golden-orange to sky blue. The rarest is the imperial topaz, prized for its warm peach-orange hue. Our collection includes both natural and treated topaz in stunning cuts and sizes.',
+    description: 'Topaz occurs in a rainbow of colors, from imperial golden-orange to sky blue. The rarest is the imperial topaz, prized for its warm peach-orange hue. Our collection includes natural white topaz, treated blue topaz, Swiss blue, and London blue varieties in stunning cuts and sizes.',
     imageUrl: '/images/topaz.jpg',
-    productCount: 5,
+    productCount: 16,
     bestSellerPercent: 15,
-    colors: ['Blue', 'Imperial', 'Yellow', 'Clear'],
+    colors: ['White', 'Blue', 'Swiss Blue', 'London Blue', 'Imperial'],
   },
   {
     slug: 'aquamarine',
