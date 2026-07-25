@@ -9,7 +9,7 @@ export default function Wishlist() {
   const { items, removeItem } = useWishlist()
   const { addItem } = useCart()
   const { convert } = useCurrency()
-  const revealRef = useScrollReveal()
+  useScrollReveal()
 
   if (items.length === 0) {
     return (
@@ -25,7 +25,7 @@ export default function Wishlist() {
   return (
     <div className="cart-wrap page-enter">
       <h1 style={{fontSize: 22, fontWeight: 'bold', marginBottom: 20}}>My Wishlist ({items.length})</h1>
-      <div className="product-grid" ref={revealRef}>
+      <div className="product-grid">
         {items.map((product, i) => (
           <div key={product.id} className={`product-tile scroll-reveal delay-${(i % 12) + 1}`}>
             <Link to={`/product/${product.id}`}>

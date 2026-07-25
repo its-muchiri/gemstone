@@ -3,7 +3,7 @@ import { categories } from '../data/categories.ts'
 import { useScrollReveal } from '../hooks/useScrollReveal.ts'
 
 export default function AllGemstones() {
-  const revealRef = useScrollReveal()
+  useScrollReveal()
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 page-enter">
@@ -12,7 +12,7 @@ export default function AllGemstones() {
         <strong>All Gemstones</strong>
       </div>
 
-      <div className="category-header-wrap scroll-reveal" ref={revealRef}>
+      <div className="category-header-wrap scroll-reveal">
         <h1>All Gemstones</h1>
         <p>Browse our complete collection of natural loose gemstones by category.</p>
       </div>

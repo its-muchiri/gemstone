@@ -112,7 +112,7 @@ export default function Help() {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [sent, setSent] = useState(false)
-  const revealRef = useScrollReveal()
+  useScrollReveal()
 
   const validTopic = topic ? helpTopics[topic] : undefined
   const showNotFound = topic && !validTopic
@@ -137,7 +137,7 @@ export default function Help() {
 
       <div className="grid md:grid-cols-4 gap-8">
         <nav className="md:col-span-1">
-          <div className="gs-sidebar anim-slide-in-left" ref={revealRef} style={{position: 'sticky', top: 100}}>
+          <div className="gs-sidebar anim-slide-in-left" style={{position: 'sticky', top: 100}}>
             <h3 style={{display: 'flex', alignItems: 'center', gap: 6, fontSize: 14}}>
               <HelpCircle size={14} /> Help Topics
             </h3>
@@ -181,7 +181,7 @@ export default function Help() {
 
           {topic === 'contact' && (
             <>
-              <div className="scroll-reveal" ref={revealRef} style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginTop: 20, background: 'linear-gradient(180deg, #f5f8f5 0%, #eef3ee 100%)', padding: 20, textAlign: 'center', borderRadius: 4, border: '1px solid #e0e6e0'}}>
+              <div className="scroll-reveal" style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginTop: 20, background: 'linear-gradient(180deg, #f5f8f5 0%, #eef3ee 100%)', padding: 20, textAlign: 'center', borderRadius: 4, border: '1px solid #e0e6e0'}}>
                 <div>
                   <Phone size={22} style={{color: '#005334', margin: '0 auto 6px'}} />
                   <p style={{fontSize: 13, fontWeight: 'bold', color: '#1a3a24'}}>Phone</p>

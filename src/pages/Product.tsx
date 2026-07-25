@@ -19,7 +19,7 @@ export default function Product() {
   const { addItem: addWishlist, removeItem: removeWishlist, isInWishlist } = useWishlist()
   const { convert } = useCurrency()
   const inWish = product ? isInWishlist(product.id) : false
-  const revealRef = useScrollReveal()
+  useScrollReveal()
 
   const related = useMemo(() => {
     if (!product) return []
@@ -199,7 +199,7 @@ export default function Product() {
       {/* Related products */}
       {related.length > 0 && (
         <div style={{marginTop: 20}}>
-          <h2 className="scroll-reveal" ref={revealRef} style={{fontSize: 18, fontWeight: 'bold', marginBottom: 16, color: '#1a3a24', paddingBottom: 8, borderBottom: '2px solid #005334', display: 'inline-block'}}>You May Also Like</h2>
+          <h2 className="scroll-reveal" style={{fontSize: 18, fontWeight: 'bold', marginBottom: 16, color: '#1a3a24', paddingBottom: 8, borderBottom: '2px solid #005334', display: 'inline-block'}}>You May Also Like</h2>
           <div className="product-grid" style={{marginTop: 12}}>
             {related.map((p, i) => (
               <div key={p.id} className={`scroll-reveal delay-${(i % 4) + 1}`}>

@@ -4,7 +4,7 @@ import { testimonials } from '../data/testimonials.ts'
 import { useScrollReveal } from '../hooks/useScrollReveal.ts'
 
 export default function Home() {
-  const revealRef = useScrollReveal()
+  useScrollReveal()
 
   return (
     <div className="page-enter">
@@ -23,7 +23,7 @@ export default function Home() {
       </section>
 
       {/* Trust Strip */}
-      <div className="gs-trust-bar" ref={revealRef}>
+      <div className="gs-trust-bar">
         <div className="gs-trust-bar-item trust-icon-hover scroll-reveal delay-1">
           <img src="/images/m_report.png" alt="" />
           <div><strong>Independent Gem Reports</strong><small>Included With Every Order</small></div>
@@ -40,7 +40,7 @@ export default function Home() {
 
       {/* Best Selling Gems */}
       <section className="max-w-7xl mx-auto px-4 py-8">
-        <h3 className="text-lg font-bold mb-4 uppercase tracking-wide scroll-reveal" ref={revealRef}>Best Selling Gems - Last 30 Days</h3>
+        <h3 className="text-lg font-bold mb-4 uppercase tracking-wide scroll-reveal">Best Selling Gems - Last 30 Days</h3>
         <div className="gs-best-sellers-grid">
           {bestSellers.map((bs, i) => (
             <Link key={bs.categorySlug} to={`/gemstones/${bs.categorySlug}`}
@@ -55,7 +55,7 @@ export default function Home() {
       {/* Customer Reviews */}
       <section className="bg-surface py-8">
         <div className="max-w-7xl mx-auto px-4">
-          <h3 className="text-lg font-bold mb-4 uppercase tracking-wide scroll-reveal" ref={revealRef}>Certified Customer Reviews</h3>
+          <h3 className="text-lg font-bold mb-4 uppercase tracking-wide scroll-reveal">Certified Customer Reviews</h3>
           <div className="gs-testimonials">
             {testimonials.slice(0, 9).map((t, i) => (
               <div key={t.id} className={`gs-testimonial best-seller-card scroll-reveal delay-${(i % 12) + 1}`}>
@@ -76,7 +76,7 @@ export default function Home() {
 
       {/* Partners and Trust */}
       <section className="max-w-7xl mx-auto px-4 py-8">
-        <h3 className="text-lg font-bold mb-4 uppercase tracking-wide scroll-reveal" ref={revealRef}>Partners and Trust</h3>
+        <h3 className="text-lg font-bold mb-4 uppercase tracking-wide scroll-reveal">Partners and Trust</h3>
         <Link to="/help" className="block rounded-lg overflow-hidden border border-border hover:shadow-md transition-shadow scroll-reveal">
           <img src="/images/trust_desktop_2.jpg" alt="Partners and Trust" className="w-full object-cover" />
         </Link>
@@ -85,7 +85,7 @@ export default function Home() {
       {/* CTA Banner */}
       <section style={{background: 'linear-gradient(135deg, #005334 0%, #003d26 100%)', padding: '32px 0'}}>
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-lg font-bold mb-4 scroll-reveal" ref={revealRef} style={{color: '#fff'}}>Enjoy the Largest Online Shop for Natural Gemstones</p>
+          <p className="text-lg font-bold mb-4 scroll-reveal" style={{color: '#fff'}}>Enjoy the Largest Online Shop for Natural Gemstones</p>
           <Link to="/all-gemstones"
             className="best-seller-card scroll-reveal"
             style={{display: 'inline-block', background: '#fff', color: '#005334', fontWeight: 'bold', padding: '12px 32px', borderRadius: 4, textDecoration: 'none', fontSize: 14, letterSpacing: '0.5px', border: '2px solid #fff'}}>
@@ -96,7 +96,7 @@ export default function Home() {
 
       {/* SEO Content Blocks */}
       <section className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid md:grid-cols-2 gap-6" ref={revealRef}>
+        <div className="grid md:grid-cols-2 gap-6">
           {[
             { title: 'Explore a World of Gems', text: 'Our collection includes an array of natural gemstones ranging from well-known precious stones like sapphire, diamond, ruby, and emerald to unique and beautiful semi-precious options. It includes faceted, cabochon and carved gemstones. Each gemstone possesses its character, color, and charm, allowing you to find the perfect piece that speaks to you.' },
             { title: 'Gemstones for Sale: A Unique Opportunity', text: 'Looking for that special gem without breaking the bank? Our exclusive sale on precious and semi-precious gemstones provides an opportunity to own exquisite gems at a fraction of the price. Even a blue sapphire can be affordable in certain tones or from certain locations.' },
@@ -113,7 +113,7 @@ export default function Home() {
 
       {/* Gemstone Information */}
       <section className="max-w-7xl mx-auto px-4 py-8">
-        <div className="bg-white border border-[#e0e6e0] rounded-lg p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 scroll-reveal" ref={revealRef} style={{boxShadow: '0 2px 10px rgba(0,0,0,0.04)'}}>
+        <div className="bg-white border border-[#e0e6e0] rounded-lg p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 scroll-reveal" style={{boxShadow: '0 2px 10px rgba(0,0,0,0.04)'}}>
           <div className="flex-1">
             <h3 className="text-lg font-bold mb-2" style={{color: '#1a3a24'}}>GEMSTONE INFORMATION</h3>
             <p className="text-sm text-[#555] leading-relaxed">

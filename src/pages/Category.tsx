@@ -18,7 +18,7 @@ export default function Category() {
   const [filters, setFilters] = useState<Filters>({
     color: '', shape: '', priceMin: '', priceMax: '', caratMin: '', caratMax: '', treatment: '', inStock: false,
   })
-  const revealRef = useScrollReveal()
+  useScrollReveal()
 
   const categoryProducts = useMemo(() => {
     let filtered = allProducts.filter(p => p.category === slug)
@@ -78,7 +78,7 @@ export default function Category() {
       </div>
 
       {/* Category header */}
-      <div className="category-header-wrap scroll-reveal" ref={revealRef}>
+      <div className="category-header-wrap scroll-reveal">
         <h1>{category.name}</h1>
         <p>{category.description}</p>
       </div>

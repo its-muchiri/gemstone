@@ -11,7 +11,7 @@ export default function Search() {
   const navigate = useNavigate()
   const query = params.get('q') || ''
   const [inputValue, setInputValue] = useState(query)
-  const revealRef = useScrollReveal()
+  useScrollReveal()
 
   const results = useMemo(() => query ? searchProducts(query) : [], [query])
 
@@ -49,7 +49,7 @@ export default function Search() {
       </h1>
 
       {matchedCategories.length > 0 && (
-        <div className="scroll-reveal" ref={revealRef} style={{marginBottom: 20}}>
+        <div className="scroll-reveal" style={{marginBottom: 20}}>
           <h2 style={{fontSize: 13, fontWeight: 'bold', color: '#1a3a24', marginBottom: 8}}>Matching Categories</h2>
           <div style={{display: 'flex', flexWrap: 'wrap', gap: 8}}>
             {matchedCategories.map(c => (
