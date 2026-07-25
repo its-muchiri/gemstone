@@ -4,12 +4,14 @@ import { Search as SearchIcon } from 'lucide-react'
 import { searchProducts } from '../data/products.ts'
 import { categories } from '../data/categories.ts'
 import ProductCard from '../components/ProductCard.tsx'
+import { useScrollReveal } from '../hooks/useScrollReveal.ts'
 
 export default function Search() {
   const [params] = useSearchParams()
   const navigate = useNavigate()
   const query = params.get('q') || ''
   const [inputValue, setInputValue] = useState(query)
+  const revealRef = useScrollReveal()
 
   const results = useMemo(() => query ? searchProducts(query) : [], [query])
 
@@ -27,31 +29,32 @@ export default function Search() {
   }
 
   return (
-    <div className="cart-wrap">
-      <form onSubmit={handleSubmit} style={{display: 'flex', gap: 10, marginBottom: 20}}>
+    <div className="cart-wrap page-enter">
+      <form onSubmit={handleSubmit} className="anim-slide-down" style={{display: 'flex', gap: 10, marginBottom: 20}}>
         <input
           type="text"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Search gemstones, colors, origins..."
-          style={{flex: 1, padding: '8px 12px', border: '1px solid #ccc', borderRadius: 3, fontSize: 14}}
+          className="gs-form-input"
+          style={{flex: 1}}
         />
-        <button type="submit" className="gs-btn" style={{padding: '8px 20px', fontSize: 13}}>
+        <button type="submit" className="gs-btn" style={{padding: '10px 24px', fontSize: 13}}>
           Search
         </button>
       </form>
 
-      <h1 style={{fontSize: 20, fontWeight: 'bold', marginBottom: 16}}>
+      <h1 className="anim-slide-up" style={{fontSize: 20, fontWeight: 'bold', marginBottom: 16, color: '#1a3a24'}}>
         Search Results for &quot;{query}&quot;
       </h1>
 
       {matchedCategories.length > 0 && (
-        <div style={{marginBottom: 20}}>
-          <h2 style={{fontSize: 13, fontWeight: 'bold', color: '#666', marginBottom: 8}}>Matching Categories</h2>
+        <div className="scroll-reveal" ref={revealRef} style={{marginBottom: 20}}>
+          <h2 style={{fontSize: 13, fontWeight: 'bold', color: '#1a3a24', marginBottom: 8}}>Matching Categories</h2>
           <div style={{display: 'flex', flexWrap: 'wrap', gap: 8}}>
             {matchedCategories.map(c => (
               <Link key={c.slug} to={`/gemstones/${c.slug}`}
-                style={{padding: '4px 12px', border: '1px solid #ddd', borderRadius: 3, fontSize: 13, color: '#333', textDecoration: 'none'}}>
+                style={{padding: '5px 14px', border: '1px solid #e0e6e0', borderRadius: 4, fontSize: 13, color: '#333', textDecoration: 'none', transition: 'all 0.15s'}}>
                 {c.name}
               </Link>
             ))}
@@ -63,12 +66,16 @@ export default function Search() {
         <>
           <p style={{fontSize: 13, color: '#666', marginBottom: 12}}>{results.length} gemstones found</p>
           <div className="product-grid">
-            {results.map(p => <ProductCard key={p.id} product={p} />)}
+            {results.map((p, i) => (
+              <div key={p.id} className={`scroll-reveal delay-${(i % 12) + 1}`}>
+                <ProductCard product={p} />
+              </div>
+            ))}
           </div>
         </>
       ) : (
-        <div style={{textAlign: 'center', padding: '60px 0'}}>
-          <SearchIcon size={40} style={{color: '#ccc', margin: '0 auto 12px'}} />
+        <div className="anim-scale-in" style={{textAlign: 'center', padding: '60px 0'}}>
+          <SearchIcon size={40} className="anim-float" style={{color: '#ccc', margin: '0 auto 12px'}} />
           <h2 style={{fontSize: 18, fontWeight: 'bold', marginBottom: 8}}>No Results Found</h2>
           <p style={{color: '#666', marginBottom: 20}}>
             We couldn&apos;t find any gemstones matching &quot;{query}&quot;. Try a different search term.
@@ -78,7 +85,7 @@ export default function Search() {
             <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 8}}>
               {['Sapphire', 'Ruby', 'Emerald', 'Blue', 'Natural', 'Ceylon'].map(term => (
                 <Link key={term} to={`/search?q=${term.toLowerCase()}`}
-                  style={{padding: '4px 12px', border: '1px solid #ddd', borderRadius: 3, fontSize: 13, color: '#333', textDecoration: 'none'}}>
+                  style={{padding: '4px 12px', border: '1px solid #ddd', borderRadius: 3, fontSize: 13, color: '#333', textDecoration: 'none', transition: 'all 0.15s'}}>
                   {term}
                 </Link>
               ))}

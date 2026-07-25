@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { ChevronRight, HelpCircle, Phone, Mail, MapPin } from 'lucide-react'
+import { useScrollReveal } from '../hooks/useScrollReveal.ts'
 
 const helpTopics: Record<string, { title: string; content: string }> = {
   shipping: {
@@ -111,6 +112,7 @@ export default function Help() {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [sent, setSent] = useState(false)
+  const revealRef = useScrollReveal()
 
   const validTopic = topic ? helpTopics[topic] : undefined
   const showNotFound = topic && !validTopic
@@ -127,25 +129,26 @@ export default function Help() {
   ]
 
   return (
-    <div className="gem-detail-wrap">
-      <div className="gs-breadcrumbs">
+    <div className="gem-detail-wrap page-enter">
+      <div className="gs-breadcrumbs anim-slide-down">
         <Link to="/">Home</Link> <span>/</span>
         <strong>Help</strong>
       </div>
 
       <div className="grid md:grid-cols-4 gap-8">
         <nav className="md:col-span-1">
-          <div className="gs-sidebar" style={{position: 'sticky', top: 100}}>
-            <h3 style={{display: 'flex', alignItems: 'center', gap: 6}}>
+          <div className="gs-sidebar anim-slide-in-left" ref={revealRef} style={{position: 'sticky', top: 100}}>
+            <h3 style={{display: 'flex', alignItems: 'center', gap: 6, fontSize: 14}}>
               <HelpCircle size={14} /> Help Topics
             </h3>
             <ul style={{listStyle: 'none', padding: 0, marginTop: 10}}>
-              {links.map(l => (
+              {links.map((l, i) => (
                 <li key={l.slug} style={{marginBottom: 2}}>
                   <Link to={l.slug ? `/help/${l.slug}` : '/help'}
+                    className="scroll-reveal"
                     style={{
-                      display: 'block', padding: '6px 10px', fontSize: 13, textDecoration: 'none',
-                      borderRadius: 3,
+                      display: 'block', padding: '7px 12px', fontSize: 13, textDecoration: 'none',
+                      borderRadius: 3, transition: 'all 0.15s',
                       background: (!topic && !l.slug) || topic === l.slug ? '#e6f5ec' : 'transparent',
                       color: (!topic && !l.slug) || topic === l.slug ? '#005334' : '#555',
                       fontWeight: (!topic && !l.slug) || topic === l.slug ? 'bold' : 'normal'
@@ -160,7 +163,7 @@ export default function Help() {
 
         <div className="md:col-span-3">
           {showNotFound ? (
-            <div style={{background: '#fff', border: '1px solid #eee', padding: 24, textAlign: 'center'}}>
+            <div className="anim-scale-in" style={{background: '#fff', border: '1px solid #eee', padding: 24, textAlign: 'center'}}>
               <h1 style={{fontSize: 20, fontWeight: 'bold', marginBottom: 8}}>Page Not Found</h1>
               <p style={{color: '#666', marginBottom: 12}}>
                 The help topic &quot;{topic}&quot; doesn&apos;t exist. Please choose from the topics on the left.
@@ -168,7 +171,7 @@ export default function Help() {
               <Link to="/help" style={{color: '#005334', textDecoration: 'underline', fontSize: 13}}>Back to Help Center</Link>
             </div>
           ) : (
-            <div style={{background: '#fff', border: '1px solid #eee', padding: 24}}>
+            <div className="anim-slide-up" style={{background: '#fff', border: '1px solid #eee', padding: 24}}>
               <h1 style={{fontSize: 20, fontWeight: 'bold', marginBottom: 16}}>{data.title}</h1>
               <div style={{fontSize: 13, color: '#555', lineHeight: 1.8, whiteSpace: 'pre-line'}}>
                 {data.content}
@@ -178,29 +181,29 @@ export default function Help() {
 
           {topic === 'contact' && (
             <>
-              <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginTop: 20, background: '#f5f8f5', padding: 20, textAlign: 'center'}}>
+              <div className="scroll-reveal" ref={revealRef} style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginTop: 20, background: 'linear-gradient(180deg, #f5f8f5 0%, #eef3ee 100%)', padding: 20, textAlign: 'center', borderRadius: 4, border: '1px solid #e0e6e0'}}>
                 <div>
                   <Phone size={22} style={{color: '#005334', margin: '0 auto 6px'}} />
-                  <p style={{fontSize: 13, fontWeight: 'bold'}}>Phone</p>
+                  <p style={{fontSize: 13, fontWeight: 'bold', color: '#1a3a24'}}>Phone</p>
                   <p style={{fontSize: 12, color: '#666'}}>1-800-464-1640</p>
                   <p style={{fontSize: 12, color: '#666'}}>+66-39601289</p>
                 </div>
                 <div>
                   <Mail size={22} style={{color: '#005334', margin: '0 auto 6px'}} />
-                  <p style={{fontSize: 13, fontWeight: 'bold'}}>Email</p>
+                  <p style={{fontSize: 13, fontWeight: 'bold', color: '#1a3a24'}}>Email</p>
                   <p style={{fontSize: 12, color: '#666'}}>help@gemselect.com</p>
                 </div>
                 <div>
                   <MapPin size={22} style={{color: '#005334', margin: '0 auto 6px'}} />
-                  <p style={{fontSize: 13, fontWeight: 'bold'}}>Address</p>
+                  <p style={{fontSize: 13, fontWeight: 'bold', color: '#1a3a24'}}>Address</p>
                   <p style={{fontSize: 12, color: '#666'}}>183/24-25 Moo 4, Chanthaburi 22000, THAILAND</p>
                 </div>
               </div>
 
-              <div style={{marginTop: 20, background: '#fff', border: '1px solid #eee', padding: 20}}>
-                <h3 style={{fontSize: 14, fontWeight: 'bold', marginBottom: 12}}>Send Us a Message</h3>
+              <div style={{marginTop: 20, background: '#fff', border: '1px solid #e0e6e0', padding: 20, borderRadius: 4}}>
+                <h3 style={{fontSize: 14, fontWeight: 'bold', marginBottom: 12, color: '#1a3a24'}}>Send Us a Message</h3>
                 {sent ? (
-                  <p style={{color: '#005334', fontWeight: 'bold', fontSize: 13}}>Thank you! Your message has been sent. We&apos;ll get back to you within 24 hours.</p>
+                  <p className="newsletter-success" style={{color: '#005334', fontWeight: 'bold', fontSize: 13}}>Thank you! Your message has been sent. We&apos;ll get back to you within 24 hours.</p>
                 ) : (
                   <form onSubmit={(e) => { e.preventDefault(); setSent(true) }}>
                     <div className="gs-form-group">

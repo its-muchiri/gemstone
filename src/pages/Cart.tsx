@@ -17,15 +17,16 @@ export default function Cart() {
 
   if (checkedOut) {
     return (
-      <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-        <CheckCircle size={64} className="text-primary mx-auto mb-4" />
-        <h1 className="text-2xl font-bold mb-2">Order Confirmed!</h1>
-        <p className="text-text-secondary mb-2">Thank you for your mock order. This is a demo — no real payment was processed.</p>
-        <p className="text-sm text-text-secondary mb-6">
+      <div className="max-w-7xl mx-auto px-4 py-16 text-center page-enter">
+        <CheckCircle size={64} className="anim-pop-in" style={{color: '#005334', margin: '0 auto 16px'}} />
+        <h1 className="text-2xl font-bold mb-2 anim-slide-up">Order Confirmed!</h1>
+        <p className="text-text-secondary mb-2 anim-slide-up" style={{animationDelay: '0.1s'}}>Thank you for your mock order. This is a demo — no real payment was processed.</p>
+        <p className="text-sm text-text-secondary mb-6 anim-slide-up" style={{animationDelay: '0.2s'}}>
           Order total: {convert(totalUsd)} ({totalItems} item{totalItems !== 1 ? 's' : ''})
         </p>
         <Link to="/all-gemstones"
-          className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors">
+          className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors best-seller-card anim-slide-up"
+          style={{animationDelay: '0.3s'}}>
           Continue Shopping <ArrowRight size={18} />
         </Link>
       </div>
@@ -34,12 +35,12 @@ export default function Cart() {
 
   if (items.length === 0) {
     return (
-      <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-        <ShoppingCart size={64} className="text-text-secondary/30 mx-auto mb-4" />
+      <div className="max-w-7xl mx-auto px-4 py-16 text-center page-enter">
+        <ShoppingCart size={64} className="anim-float" style={{color: '#ccc', margin: '0 auto 16px'}} />
         <h1 className="text-2xl font-bold mb-2">Your Cart is Empty</h1>
         <p className="text-text-secondary mb-6">Looks like you haven't added any gemstones yet.</p>
         <Link to="/all-gemstones"
-          className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors">
+          className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors best-seller-card">
           <ArrowLeft size={18} /> Continue Shopping
         </Link>
       </div>
@@ -47,16 +48,16 @@ export default function Cart() {
   }
 
   return (
-    <div className="cart-wrap">
+    <div className="cart-wrap page-enter">
       <h1 style={{fontSize: 22, fontWeight: 'bold', marginBottom: 20}}>Shopping Cart ({totalItems} items)</h1>
 
       <div className="grid lg:grid-cols-3 gap-8">
         {/* Cart items */}
         <div className="lg:col-span-2">
-          {items.map(({ product, quantity }) => (
-            <div key={product.id} className="cart-item">
+          {items.map(({ product, quantity }, i) => (
+            <div key={product.id} className={`cart-item cart-item-enter`} style={{animationDelay: `${i * 0.05}s`}}>
               <Link to={`/product/${product.id}`} style={{flexShrink: 0}}>
-                <img src={product.imageUrl} alt={product.name} style={{width: 80, height: 80, objectFit: 'contain'}} />
+                <img src={product.imageUrl} alt={product.name} style={{width: 80, height: 80, objectFit: 'contain'}} className="product-img-hover" />
               </Link>
               <div style={{minWidth: 0}}>
                 <Link to={`/product/${product.id}`} style={{fontWeight: 'bold', fontSize: 13, color: '#333'}}>

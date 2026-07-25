@@ -1,0 +1,2161 @@
+﻿[
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/5-59-carat-blue-zircon-oval-gemstone-327750.php#product",
+        "name": "5.59ct Blue Zircon, Oval, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-327750a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-327750b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-327750c.jpg"
+        ],
+        "description": "This is a 5.59 carat natural medium blue Zircon gem, 1 pc in oval shape with an exact size of 9.60 x 7.78 x 7.27 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "327750",
+        "mpn": "GS327750",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/5-59-carat-blue-zircon-oval-gemstone-327750.php",
+            "priceCurrency": "USD",
+            "price": "881.92",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "5.59 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "9.60 x 7.78 x 7.27 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "9.60 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "7.78 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "7.27 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/2-21-carat-white-zircon-oval-gemstones-441060.php#product",
+        "name": "2.21ctw White Zircon, Oval, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-441060a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-441060b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-441060c.jpg"
+        ],
+        "description": "These are 2.21 carat natural white Zircon gems, 2 pcs in oval shape with an exact size of 7.08 x 4.95 x 3.01 mm. These loose Zircon gemstones were mined in Cambodia and their clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "441060",
+        "mpn": "GS441060",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/2-21-carat-white-zircon-oval-gemstones-441060.php",
+            "priceCurrency": "USD",
+            "price": "13.19",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "2.21 ct",
+        "color": "White",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "7.08 x 4.95 x 3.01 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "7.08 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "4.95 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "3.01 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/6-3-carat-blue-zircon-oval-gemstone-327722.php#product",
+        "name": "6.30ct Blue Zircon, Oval, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-327722a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-327722b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-327722c.jpg"
+        ],
+        "description": "This is a 6.30 carat natural blue Zircon gem, 1 pc in oval shape with an exact size of 9.52 x 8.11 x 7.33 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "327722",
+        "mpn": "GS327722",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/6-3-carat-blue-zircon-oval-gemstone-327722.php",
+            "priceCurrency": "USD",
+            "price": "920.30",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "6.30 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "9.52 x 8.11 x 7.33 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "9.52 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "8.11 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "7.33 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/4-08-carat-white-zircon-diamond-cut-gemstones-405514.php#product",
+        "name": "4.08ctw White Zircon, Round, VVS-VS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-405514a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-405514b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-405514c.jpg"
+        ],
+        "description": "These are 4.08 carat natural clear white Zircon gems, 2 pcs in round shape with an exact size of 7.34 mm x 4.51 mm (avg.). These loose Zircon gemstones were mined in Myanmar and their clarity is VVS-VS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "405514",
+        "mpn": "GS405514",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/4-08-carat-white-zircon-diamond-cut-gemstones-405514.php",
+            "priceCurrency": "USD",
+            "price": "110.55",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "4.08 ct",
+        "color": "White",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "7.34 mm x 4.51 mm (avg.)"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Diameter",
+                "value": "7.34 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "4.51 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/4-74-carat-white-zircon-diamond-cut-gemstones-385970.php#product",
+        "name": "4.74ctw White Zircon, Round, VS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-385970a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-385970b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-385970c.jpg"
+        ],
+        "description": "These are 4.74 carat natural white Zircon gems, 2 pcs in round shape with an exact size of 7.61 mm x 4.98 mm (avg.). These loose Zircon gemstones were mined in Cambodia and their clarity is VS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "385970",
+        "mpn": "GS385970",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/4-74-carat-white-zircon-diamond-cut-gemstones-385970.php",
+            "priceCurrency": "USD",
+            "price": "127.95",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "4.74 ct",
+        "color": "White",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "7.61 mm x 4.98 mm (avg.)"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Diameter",
+                "value": "7.61 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "4.98 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/8-06-carat-blue-zircon-pear-shape-gemstone-487520.php#product",
+        "name": "8.06ct Blue Zircon, Pear Shape, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487520a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487520b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487520c.jpg"
+        ],
+        "description": "This is a 8.06 carat natural medium blue Zircon gem, 1 pc in pear shape with an exact size of 13.92 x 9.71 x 5.71 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "487520",
+        "mpn": "GS487520",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/8-06-carat-blue-zircon-pear-shape-gemstone-487520.php",
+            "priceCurrency": "USD",
+            "price": "735.88",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "8.06 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "13.92 x 9.71 x 5.71 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "13.92 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "9.71 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "5.71 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/7-47-carat-blue-zircon-pear-shape-gemstone-633416.php#product",
+        "name": "7.47ct Blue Zircon, Pear Shape, VVS-VS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-633416a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-633416b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-633416c.jpg"
+        ],
+        "description": "This is a 7.47 carat natural intense silver aqua-blue Zircon gem, 1 pc in pear shape with an exact size of 13.16 x 8.82 x 7.10 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VVS-VS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "633416",
+        "mpn": "GS633416",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/7-47-carat-blue-zircon-pear-shape-gemstone-633416.php",
+            "priceCurrency": "USD",
+            "price": "930.02",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "7.47 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "13.16 x 8.82 x 7.10 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "13.16 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "8.82 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "7.10 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/3-88-carat-blue-zircon-oval-gemstone-466814.php#product",
+        "name": "3.88ct Blue Zircon, Oval, VS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-466814a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-466814b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-466814c.jpg"
+        ],
+        "description": "This is a 3.88 carat natural azure blue Zircon gem, 1 pc in oval shape with an exact size of 8.34 x 6.80 x 6.19 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "466814",
+        "mpn": "GS466814",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/3-88-carat-blue-zircon-oval-gemstone-466814.php",
+            "priceCurrency": "USD",
+            "price": "340.08",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "3.88 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "8.34 x 6.80 x 6.19 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "8.34 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "6.80 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "6.19 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/2-39-carat-white-zircon-oval-gemstones-440531.php#product",
+        "name": "2.39ctw White Zircon, Oval, VS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-440531a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-440531b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-440531c.jpg"
+        ],
+        "description": "These are 2.39 carat natural white Zircon gems, 2 pcs in oval shape with an exact size of 7.02 x 5.04 x 3.27 mm. These loose Zircon gemstones were mined in Cambodia and their clarity is VS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "440531",
+        "mpn": "GS440531",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/2-39-carat-white-zircon-oval-gemstones-440531.php",
+            "priceCurrency": "USD",
+            "price": "14.28",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "2.39 ct",
+        "color": "White",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "7.02 x 5.04 x 3.27 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "7.02 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "5.04 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "3.27 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/5-23-carat-blue-zircon-oval-gemstone-487226.php#product",
+        "name": "5.23ct Blue Zircon, Oval, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487226a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487226b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487226c.jpg"
+        ],
+        "description": "This is a 5.23 carat natural blue Zircon gem, 1 pc in oval shape with an exact size of 9.44 x 7.78 x 6.67 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "487226",
+        "mpn": "GS487226",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/5-23-carat-blue-zircon-oval-gemstone-487226.php",
+            "priceCurrency": "USD",
+            "price": "573.00",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "5.23 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "9.44 x 7.78 x 6.67 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "9.44 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "7.78 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "6.67 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/3-28-carat-white-zircon-oval-gemstone-377672.php#product",
+        "name": "3.28ct White Zircon, Oval, VS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-377672a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-377672b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-377672c.jpg"
+        ],
+        "description": "This is a 3.28 carat natural white Zircon gem, 1 pc in oval shape with an exact size of 8.26 x 6.42 x 5.24 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "377672",
+        "mpn": "GS377672",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/3-28-carat-white-zircon-oval-gemstone-377672.php",
+            "priceCurrency": "USD",
+            "price": "77.52",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "3.28 ct",
+        "color": "White",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "8.26 x 6.42 x 5.24 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "8.26 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "6.42 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "5.24 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/5-74-carat-blue-zircon-oval-gemstone-487224.php#product",
+        "name": "5.74ct Blue Zircon, Oval, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487224a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487224b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487224c.jpg"
+        ],
+        "description": "This is a 5.74 carat natural electric blue Zircon gem, 1 pc in oval shape with an exact size of 9.20 x 7.66 x 7.35 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "487224",
+        "mpn": "GS487224",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/5-74-carat-blue-zircon-oval-gemstone-487224.php",
+            "priceCurrency": "USD",
+            "price": "628.87",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "5.74 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "9.20 x 7.66 x 7.35 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "9.20 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "7.66 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "7.35 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/3-79-carat-blue-zircon-oval-gemstone-337762.php#product",
+        "name": "3.79ct Blue Zircon, Oval, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-337762a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-337762b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-337762c.jpg"
+        ],
+        "description": "This is a 3.79 carat natural medium blue Zircon gem, 1 pc in oval shape with an exact size of 8.10 x 6.87 x 6.59 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "337762",
+        "mpn": "GS337762",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/3-79-carat-blue-zircon-oval-gemstone-337762.php",
+            "priceCurrency": "USD",
+            "price": "411.08",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "3.79 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "8.10 x 6.87 x 6.59 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "8.10 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "6.87 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "6.59 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/6-82-carat-blue-zircon-oval-gemstone-317049.php#product",
+        "name": "6.82ct Blue Zircon, Oval, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-317049a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-317049b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-317049c.jpg"
+        ],
+        "description": "This is a 6.82 carat natural blue Zircon gem, 1 pc in oval shape with an exact size of 9.45 x 7.79 x 8.25 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "317049",
+        "mpn": "GS317049",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/6-82-carat-blue-zircon-oval-gemstone-317049.php",
+            "priceCurrency": "USD",
+            "price": "1027.41",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "6.82 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "9.45 x 7.79 x 8.25 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "9.45 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "7.79 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "8.25 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/6-38-carat-blue-zircon-oval-gemstone-487521.php#product",
+        "name": "6.38ct Blue Zircon, Oval, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487521a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487521b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487521c.jpg"
+        ],
+        "description": "This is a 6.38 carat natural medium blue Zircon gem, 1 pc in oval shape with an exact size of 10.93 x 7.92 x 6.44 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "487521",
+        "mpn": "GS487521",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/6-38-carat-blue-zircon-oval-gemstone-487521.php",
+            "priceCurrency": "USD",
+            "price": "712.14",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "6.38 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "10.93 x 7.92 x 6.44 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "10.93 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "7.92 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "6.44 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/5-73-carat-blue-zircon-round-gemstone-459867.php#product",
+        "name": "5.73ct Blue Zircon, Round, VVS-VS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-459867a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-459867b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-459867c.jpg"
+        ],
+        "description": "This is a 5.73 carat natural blue Zircon gem, 1 pc in round shape with an exact size of 8.96 mm x 7.12 mm . This loose Zircon gemstone was mined in Cambodia and its clarity is VVS-VS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "459867",
+        "mpn": "GS459867",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/5-73-carat-blue-zircon-round-gemstone-459867.php",
+            "priceCurrency": "USD",
+            "price": "753.33",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "5.73 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "8.96 mm x 7.12 mm "
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Diameter",
+                "value": "8.96 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "7.12 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/5-29-carat-blue-zircon-oval-gemstone-487227.php#product",
+        "name": "5.29ct Blue Zircon, Oval, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487227a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487227b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487227c.jpg"
+        ],
+        "description": "This is a 5.29 carat natural medium blue Zircon gem, 1 pc in oval shape with an exact size of 8.96 x 7.58 x 7.02 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "487227",
+        "mpn": "GS487227",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/5-29-carat-blue-zircon-oval-gemstone-487227.php",
+            "priceCurrency": "USD",
+            "price": "579.57",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "5.29 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "8.96 x 7.58 x 7.02 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "8.96 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "7.58 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "7.02 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/4-31-carat-white-zircon-round-gemstones-377892.php#product",
+        "name": "4.31ctw White Zircon, Round, VVS-VS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-377892a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-377892b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-377892c.jpg"
+        ],
+        "description": "These are 4.31 carat natural white Zircon gems, 2 pcs in round shape with an exact size of 6.55 mm x 4.87 mm (avg.). These loose Zircon gemstones were mined in Cambodia and their clarity is VVS-VS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "377892",
+        "mpn": "GS377892",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/4-31-carat-white-zircon-round-gemstones-377892.php",
+            "priceCurrency": "USD",
+            "price": "105.70",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "4.31 ct",
+        "color": "White",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "6.55 mm x 4.87 mm (avg.)"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Diameter",
+                "value": "6.55 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "4.87 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/5-88-carat-blue-zircon-oval-gemstone-487512.php#product",
+        "name": "5.88ct Blue Zircon, Oval, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487512a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487512b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487512c.jpg"
+        ],
+        "description": "This is a 5.88 carat natural medium blue Zircon gem, 1 pc in oval shape with an exact size of 9.54 x 7.86 x 7.07 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "487512",
+        "mpn": "GS487512",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/5-88-carat-blue-zircon-oval-gemstone-487512.php",
+            "priceCurrency": "USD",
+            "price": "644.21",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "5.88 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "9.54 x 7.86 x 7.07 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "9.54 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "7.86 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "7.07 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/6-8-carat-blue-zircon-pear-shape-gemstone-487519.php#product",
+        "name": "6.80ct Blue Zircon, Pear Shape, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487519a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487519b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487519c.jpg"
+        ],
+        "description": "This is a 6.80 carat natural aqua blue Zircon gem, 1 pc in pear shape with an exact size of 12.34 x 8.52 x 7.04 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "487519",
+        "mpn": "GS487519",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/6-8-carat-blue-zircon-pear-shape-gemstone-487519.php",
+            "priceCurrency": "USD",
+            "price": "745.01",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "6.80 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "12.34 x 8.52 x 7.04 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "12.34 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "8.52 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "7.04 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/5-36-carat-blue-zircon-oval-gemstone-487225.php#product",
+        "name": "5.36ct Blue Zircon, Oval, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487225a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487225b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-487225c.jpg"
+        ],
+        "description": "This is a 5.36 carat natural medium blue Zircon gem, 1 pc in oval shape with an exact size of 9.20 x 8.28 x 6.44 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "487225",
+        "mpn": "GS487225",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/5-36-carat-blue-zircon-oval-gemstone-487225.php",
+            "priceCurrency": "USD",
+            "price": "587.24",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "5.36 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "9.20 x 8.28 x 6.44 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "9.20 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "8.28 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "6.44 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/5-72-carat-blue-zircon-round-gemstone-459804.php#product",
+        "name": "5.72ct Blue Zircon, Round, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-459804a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-459804b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-459804c.jpg"
+        ],
+        "description": "This is a 5.72 carat natural blue Zircon gem, 1 pc in round shape with an exact size of 8.80 mm x 7.14 mm . This loose Zircon gemstone was mined in Cambodia and its clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "459804",
+        "mpn": "GS459804",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/5-72-carat-blue-zircon-round-gemstone-459804.php",
+            "priceCurrency": "USD",
+            "price": "752.02",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "5.72 ct",
+        "color": "Blue",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "8.80 mm x 7.14 mm "
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Diameter",
+                "value": "8.80 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "7.14 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/2-92-carat-white-zircon-oval-gemstone-382176.php#product",
+        "name": "2.92ct White Zircon, Oval, VVS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-382176a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-382176b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-382176c.jpg"
+        ],
+        "description": "This is a 2.92 carat natural white Zircon gem, 1 pc in oval shape with an exact size of 8.63 x 7.09 x 4.36 mm. This loose Zircon gemstone was mined in Cambodia and its clarity is VVS (Eye Clean). This natural Zircon has been heated to enhance its vivid color.",
+        "sku": "382176",
+        "mpn": "GS382176",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/2-92-carat-white-zircon-oval-gemstone-382176.php",
+            "priceCurrency": "USD",
+            "price": "79.98",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "2.92 ct",
+        "color": "White",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "8.63 x 7.09 x 4.36 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "8.63 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "7.09 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "4.36 mm"
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://www.gemselect.com/zircon/2-98-carat-red-zircon-pear-shape-gemstone-526527.php#product",
+        "name": "2.98ct Red Zircon, Pear Shape, VVS-VS",
+        "image": [
+            "https://www.gemselect.com/photos/zircon/zircon-gem-526527a.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-526527b.jpg",
+            "https://www.gemselect.com/photos/zircon/zircon-gem-526527c.jpg"
+        ],
+        "description": "This is a 2.98 carat natural wine red Zircon gem, 1 pc in pear shape with an exact size of 9.89 x 7.08 x 4.78 mm. This loose Zircon gemstone was mined in Tanzania and its clarity is VVS-VS (Eye Clean). No treatment has been applied on this natural Zircon stone",
+        "sku": "526527",
+        "mpn": "GS526527",
+        "brand": {
+            "@type": "Brand",
+            "name": "GemSelect"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://www.gemselect.com/zircon/2-98-carat-red-zircon-pear-shape-gemstone-526527.php",
+            "priceCurrency": "USD",
+            "price": "125.24",
+            "priceValidUntil": "2026-08-24",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@id": "https://www.gemselect.com/#organization"
+            },
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "8.90",
+                    "currency": "USD"
+                },
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 2,
+                        "maxValue": 10,
+                        "unitCode": "DAY"
+                    },
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": 1,
+                        "maxValue": 2,
+                        "unitCode": "DAY"
+                    }
+                }
+            },
+            "hasMerchantReturnPolicy": {
+                "@id": "https://www.gemselect.com/help/returns.php"
+            }
+        },
+        "weight": "2.98 ct",
+        "color": "Red",
+        "category": "Loose Zircon Gemstones",
+        "material": "Zircon",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Gem Type",
+                "value": "Zircon"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Dimensions",
+                "value": "9.89 x 7.08 x 4.78 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Length",
+                "value": "9.89 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Width",
+                "value": "7.08 mm"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Height",
+                "value": "4.78 mm"
+            }
+        ]
+    }
+]

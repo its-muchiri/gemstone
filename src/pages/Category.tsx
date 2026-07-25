@@ -5,6 +5,7 @@ import { products as allProducts } from '../data/products.ts'
 import { getCategoryBySlug } from '../data/categories.ts'
 import ProductCard from '../components/ProductCard.tsx'
 import FilterSidebar, { type Filters } from '../components/FilterSidebar.tsx'
+import { useScrollReveal } from '../hooks/useScrollReveal.ts'
 
 const ITEMS_PER_PAGE = 12
 
@@ -17,6 +18,7 @@ export default function Category() {
   const [filters, setFilters] = useState<Filters>({
     color: '', shape: '', priceMin: '', priceMax: '', caratMin: '', caratMax: '', treatment: '', inStock: false,
   })
+  const revealRef = useScrollReveal()
 
   const categoryProducts = useMemo(() => {
     let filtered = allProducts.filter(p => p.category === slug)
@@ -67,16 +69,16 @@ export default function Category() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6">
+    <div className="max-w-7xl mx-auto px-4 py-6 page-enter">
       {/* Breadcrumb */}
-      <div className="gs-breadcrumbs">
+      <div className="gs-breadcrumbs anim-slide-down">
         <Link to="/">Home</Link> <span>/</span>
         <Link to="/all-gemstones">Gemstones</Link> <span>/</span>
         <strong>{category.name}</strong>
       </div>
 
       {/* Category header */}
-      <div className="category-header-wrap">
+      <div className="category-header-wrap scroll-reveal" ref={revealRef}>
         <h1>{category.name}</h1>
         <p>{category.description}</p>
       </div>
@@ -113,14 +115,18 @@ export default function Category() {
 
           {/* Product grid */}
           {paginated.length === 0 ? (
-            <div style={{textAlign: 'center', padding: '60px 0', color: '#999'}}>
+            <div className="anim-scale-in" style={{textAlign: 'center', padding: '60px 0', color: '#999'}}>
               <p style={{marginBottom: 8}}>No gemstones match your filters.</p>
               <button onClick={() => setFilters({ color: '', shape: '', priceMin: '', priceMax: '', caratMin: '', caratMax: '', treatment: '', inStock: false })}
                 style={{color: '#005334', textDecoration: 'underline', fontSize: 13, background: 'none', border: 'none', cursor: 'pointer'}}>Clear all filters</button>
             </div>
           ) : (
             <div className="product-grid">
-              {paginated.map(p => <ProductCard key={p.id} product={p} />)}
+              {paginated.map((p, i) => (
+                <div key={p.id} className={`scroll-reveal delay-${(i % 12) + 1}`}>
+                  <ProductCard product={p} />
+                </div>
+              ))}
             </div>
           )}
 

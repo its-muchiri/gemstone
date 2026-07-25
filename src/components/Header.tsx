@@ -100,7 +100,7 @@ export default function Header() {
               <Search size={18} />
             </button>
             {showSuggestions && suggestions.length > 0 && (
-              <div className="absolute top-full mt-1 w-full bg-white shadow-lg rounded border border-[#ddd] z-50">
+              <div className="absolute top-full mt-1 w-full bg-white shadow-lg rounded border border-[#ddd] z-50 anim-slide-down">
                 {suggestions.map(p => (
                   <Link key={p.id} to={`/product/${p.id}`}
                     onClick={() => { setShowSuggestions(false); setSearchQuery('') }}
@@ -170,7 +170,7 @@ export default function Header() {
 
         {/* Account dropdown */}
         {accountOpen && (
-          <div className="absolute right-8 top-full bg-white shadow-lg rounded border border-[#ddd] p-4 z-50 w-72">
+          <div className="absolute right-8 top-full bg-white shadow-lg rounded border border-[#ddd] p-4 z-50 w-72 anim-slide-down">
             {signedIn ? (
               <div>
                 <p className="text-sm font-medium mb-2">Welcome back!</p>
@@ -203,15 +203,15 @@ export default function Header() {
               onMouseLeave={() => setGemstonesOpen(false)}
               style={{ position: 'relative' }}
             >
-              <button className="flex items-center gap-1 text-white text-sm font-normal">
+              <button className="flex items-center gap-1 text-white text-sm font-normal nav-underline">
                 Gemstones <ChevronDown size={14} />
               </button>
               {gemstonesOpen && (
-                <div className="absolute left-0 top-full bg-white shadow-lg rounded-b border border-[#ddd] p-4 z-50 w-[600px]">
-                  <div className="grid grid-cols-3 gap-2">
+                <div className="absolute left-0 top-full bg-white shadow-lg rounded-b border border-[#ddd] p-4 z-50 w-[600px] anim-slide-down" style={{boxShadow: '0 8px 24px rgba(0,0,0,0.12)'}}>
+                  <div className="grid grid-cols-3 gap-1">
                     {categories.map(c => (
                       <Link key={c.slug} to={`/gemstones/${c.slug}`}
-                        className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-[#f5f8f5] transition-colors text-sm text-[#333]">
+                        className="flex items-center gap-2 px-3 py-2 rounded hover:bg-[#f5f8f5] transition-colors text-sm text-[#333]">
                         <span>{c.name}</span>
                       </Link>
                     ))}
@@ -230,11 +230,11 @@ export default function Header() {
               onMouseLeave={() => setHelpOpen(false)}
               style={{ position: 'relative' }}
             >
-              <button className="flex items-center gap-1 text-white text-sm font-normal">
+              <button className="flex items-center gap-1 text-white text-sm font-normal nav-underline">
                 Help <ChevronDown size={14} />
               </button>
               {helpOpen && (
-                <div className="absolute left-0 top-full bg-white shadow-lg rounded-b border border-[#ddd] py-2 z-50 min-w-[200px]">
+                <div className="absolute left-0 top-full bg-white shadow-lg rounded-b border border-[#ddd] py-2 z-50 min-w-[200px] anim-slide-down">
                   {helpSubLinks.map((l, i) => (
                     <Link key={i} to={l.to} className="block px-4 py-1.5 text-sm text-[#333] hover:bg-[#f5f8f5]">{l.label}</Link>
                   ))}
@@ -288,7 +288,7 @@ export default function Header() {
 
         {/* Mobile search bar */}
         {mobileSearchOpen && (
-          <div style={{ padding: '8px 14px' }}>
+          <div className="anim-slide-down" style={{ padding: '8px 14px' }}>
             <div className="mobile-search" style={{ position: 'relative' }}>
               <input
                 type="text"
@@ -334,8 +334,8 @@ export default function Header() {
       {/* ===== MOBILE SLIDE-OUT MENU ===== */}
       {mobileOpen && (
         <div className="fixed inset-0 z-[100] lg:hidden">
-          <div className="mobile-menu-overlay active" onClick={() => setMobileOpen(false)} />
-          <div className="mobile-menu open" style={{ left: 0 }}>
+          <div className="mobile-menu-overlay active anim-fade-in" onClick={() => setMobileOpen(false)} />
+          <div className="mobile-menu open anim-slide-in-left" style={{ left: 0 }}>
             <div className="mobile-menu-header">
               <button onClick={() => setMobileOpen(false)} className="menu-close">×</button>
               <div className="menu-logo">
