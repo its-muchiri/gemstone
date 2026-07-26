@@ -1,5 +1,5 @@
 'use client'
-import { createContext, useContext, useState, useCallback, useMemo, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useMemo, useEffect, type ReactNode } from 'react';
 import type { Product } from '@/types';
 
 export interface CartItem {
@@ -18,9 +18,34 @@ interface CartContextType {
 }
 
 const CartContext = createContext<CartContextType | null>(null);
+const CART_KEY = 'gemselect_cart';
+
+function loadLocalCart(): CartItem[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = localStorage.getItem(CART_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch { return []; }
+}
+
+function saveLocalCart(items: CartItem[]) {
+  try { localStorage.setItem(CART_KEY, JSON.stringify(items)); } catch {}
+}
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setItems(loadLocalCart());
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (hydrated) {
+      saveLocalCart(items);
+    }
+  }, [items, hydrated]);
 
   const addItem = useCallback((product: Product, quantity = 1) => {
     setItems(prev => {

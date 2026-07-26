@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ShoppingCart, ArrowLeft, CheckCircle, ArrowRight, CreditCard, Smartphone, Package, ChevronRight } from 'lucide-react'
+import { ShoppingCart, ArrowLeft, CheckCircle, ArrowRight, CreditCard, Smartphone, ChevronRight } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
 import { useCurrency } from '@/context/CurrencyContext'
 import { createOrder, createNowPaymentsInvoice, initiateMpesaPayment, type ShippingAddress } from '@/lib/api'
@@ -11,7 +11,7 @@ const FREE_SHIPPING_USD = 500
 const SHIPPING_STANDARD_USD = 8.90
 
 type CheckoutStep = 'cart' | 'shipping' | 'payment' | 'processing' | 'confirmation' | 'error'
-type PaymentMethod = 'nowpayments' | 'mpesa' | 'demo'
+type PaymentMethod = 'nowpayments' | 'mpesa'
 
 const initialAddress: ShippingAddress = {
   name: '',
@@ -135,14 +135,6 @@ export default function CartPage() {
   const isAddressValid = address.name && address.address1 && address.city && address.state && address.postalCode && address.country
 
   async function handleCheckout() {
-    if (paymentMethod === 'demo') {
-      setStep('processing')
-      await new Promise(r => setTimeout(r, 800))
-      clearCart()
-      setStep('confirmation')
-      return
-    }
-
     setStep('processing')
     setError('')
 
@@ -165,7 +157,7 @@ export default function CartPage() {
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Checkout failed'
       if (msg.includes('401') || msg.includes('Unauthorized')) {
-        setError('Please sign in to complete your order. For now, you can try Demo mode below.')
+        setError('Please sign in to complete your order.')
         setStep('payment')
       } else {
         setError(msg)
@@ -363,13 +355,6 @@ export default function CartPage() {
                 icon={<Smartphone size={22} />}
                 selected={paymentMethod === 'mpesa'}
                 onClick={() => setPaymentMethod('mpesa')}
-              />
-              <PaymentOption
-                label="Demo Mode"
-                description="No real payment — test the checkout flow"
-                icon={<Package size={22} />}
-                selected={paymentMethod === 'demo'}
-                onClick={() => setPaymentMethod('demo')}
               />
             </div>
 

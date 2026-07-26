@@ -15,6 +15,7 @@ import { useScrollReveal } from '@/hooks/useScrollReveal'
 export default function ProductPage() {
   const { id } = useParams<{ id: string }>()
   const [product, setProduct] = useState<Product | null>(null)
+  const [productImages, setProductImages] = useState<string[]>([])
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [qty, setQty] = useState(1)
@@ -37,6 +38,8 @@ export default function ProductPage() {
         if (!data) { setLoading(false); return }
         const mapped = apiProductToFrontend(data)
         setProduct(mapped)
+        const imgs = (data.images && data.images.length > 0) ? data.images : [mapped.imageUrl]
+        setProductImages(imgs)
 
         if (data.category?.slug) {
           fetch(`/api/products?category=${data.category.slug}&limit=5`)
@@ -72,7 +75,7 @@ export default function ProductPage() {
     )
   }
 
-  const thumbnails = [product.imageUrl, `${product.imageUrl}?v=2`, `${product.imageUrl}?v=3`]
+  const thumbnails = productImages.length > 0 ? productImages : [product.imageUrl]
 
   return (
     <div className="gem-detail-wrap page-enter">
@@ -129,7 +132,7 @@ export default function ProductPage() {
             <div className="qty-wrap">
               <button onClick={() => setQty(Math.max(1, qty - 1))}>-</button>
               <input type="text" value={qty} readOnly />
-              <button onClick={() => setQty(qty + 1)}>+</button>
+              <button onClick={() => setQty(qty + 1)} disabled={qty >= 1}>+</button>
             </div>
           </div>
 

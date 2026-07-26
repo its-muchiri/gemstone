@@ -16,8 +16,6 @@ import {
   TextLoop,
   ConfettiCanvas,
   type ConfettiRef,
-  GoogleIcon,
-  GitHubIcon,
 } from '@/components/ui/auth-shared'
 
 const modalSteps = [
@@ -190,19 +188,6 @@ export default function LoginPage() {
                 </BlurFade>
                 <BlurFade delay={0.25 * 2}>
                   <p className="text-sm font-medium text-gray-500">Sign in to continue</p>
-                </BlurFade>
-                <BlurFade delay={0.25 * 3}>
-                  <div className="flex items-center justify-center gap-4 w-full">
-                    <GlassButton contentClassName="flex items-center justify-center gap-2" size="sm"><GoogleIcon /><span className="font-semibold text-gray-800">Google</span></GlassButton>
-                    <GlassButton contentClassName="flex items-center justify-center gap-2" size="sm"><GitHubIcon /><span className="font-semibold text-gray-800">GitHub</span></GlassButton>
-                  </div>
-                </BlurFade>
-                <BlurFade delay={0.25 * 4} className="w-[300px]">
-                  <div className="flex items-center w-full gap-2 py-2">
-                    <hr className="w-full border-gray-200" />
-                    <span className="text-xs font-semibold text-gray-400">OR</span>
-                    <hr className="w-full border-gray-200" />
-                  </div>
                 </BlurFade>
               </m.div>
             )}

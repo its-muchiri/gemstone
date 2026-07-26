@@ -15,8 +15,6 @@ import {
   TextLoop,
   ConfettiCanvas,
   type ConfettiRef,
-  GoogleIcon,
-  GitHubIcon,
 } from '@/components/ui/auth-shared'
 
 const modalSteps = [
@@ -208,12 +206,7 @@ export default function RegisterPage() {
                     <p className="font-serif font-light text-4xl sm:text-5xl md:text-6xl tracking-tight text-foreground whitespace-nowrap">{stepTitles[authStep].title}</p>
                   </div>
                 </BlurFade>
-                <BlurFade delay={0.25 * 2}><p className="text-sm font-medium text-muted-foreground">Continue with</p></BlurFade>
-                <BlurFade delay={0.25 * 3}><div className="flex items-center justify-center gap-4 w-full">
-                  <GlassButton contentClassName="flex items-center justify-center gap-2" size="sm"><GoogleIcon /><span className="font-semibold text-foreground">Google</span></GlassButton>
-                  <GlassButton contentClassName="flex items-center justify-center gap-2" size="sm"><GitHubIcon /><span className="font-semibold text-foreground">GitHub</span></GlassButton>
-                </div></BlurFade>
-                <BlurFade delay={0.25 * 4} className="w-[300px]"><div className="flex items-center w-full gap-2 py-2"><hr className="w-full border-border"/><span className="text-xs font-semibold text-muted-foreground">OR</span><hr className="w-full border-border"/></div></BlurFade>
+                <BlurFade delay={0.25 * 2}><p className="text-sm font-medium text-muted-foreground">{stepTitles[authStep].subtitle}</p></BlurFade>
               </m.div>
             )}
             {(authStep === 'password' || authStep === 'confirmPassword' || authStep === 'name') && (

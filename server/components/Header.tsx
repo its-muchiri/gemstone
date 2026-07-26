@@ -52,6 +52,7 @@ export default function Header() {
   const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null) as React.MutableRefObject<ReturnType<typeof setTimeout> | null>
   const gemstonesTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const helpTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const accountTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const router = useRouter()
   const { data: session } = useSession()
   const { totalItems } = useCart()
@@ -185,10 +186,55 @@ export default function Header() {
                 </em>
               )}
             </Link>
-            <button onClick={() => setAccountOpen(!accountOpen)} className="gs-action-btn">
-              <span className="gs-action-icon"><User size={23} /></span>
-              <span>Account</span>
-            </button>
+            <div
+              onMouseEnter={() => { if (accountTimerRef.current) clearTimeout(accountTimerRef.current); setAccountOpen(true) }}
+              onMouseLeave={() => { accountTimerRef.current = setTimeout(() => setAccountOpen(false), 250) }}
+              style={{ position: 'relative' }}
+            >
+              <button className="gs-action-btn">
+                <span className="gs-action-icon"><User size={23} /></span>
+                <span>Account</span>
+              </button>
+              {accountOpen && (
+                <div className="absolute right-0 top-full bg-white shadow-lg rounded border border-[#ddd] p-4 z-50 w-72 anim-slide-down"
+                  onMouseEnter={() => { if (accountTimerRef.current) clearTimeout(accountTimerRef.current) }}
+                  onMouseLeave={() => { accountTimerRef.current = setTimeout(() => setAccountOpen(false), 250) }}
+                >
+                  {signedIn ? (
+                    <div>
+                      <p className="text-sm font-medium mb-1">Welcome, {session.user.name || session.user.email}</p>
+                      <p className="text-xs text-gray-500 mb-3">{session.user.email}</p>
+                      <Link href="/orders" onClick={() => setAccountOpen(false)} className="block w-full text-sm text-[#005334] py-1.5 hover:underline font-medium">
+                        My Orders
+                      </Link>
+                      <button
+                        onClick={() => { signOut({ callbackUrl: '/' }); setAccountOpen(false) }}
+                        className="w-full text-sm text-gray-500 hover:text-[#005334] py-1.5"
+                      >
+                        Sign Out
+                      </button>
+                    </div>
+                  ) : (
+                    <div>
+                      <p className="text-sm font-medium mb-3">Sign In to Your Account</p>
+                      <Link
+                        href="/login"
+                        onClick={() => setAccountOpen(false)}
+                        className="block w-full bg-[#005334] text-white py-2 rounded text-sm font-medium hover:bg-[#003d26] transition-colors text-center"
+                      >
+                        Sign In
+                      </Link>
+                      <p className="text-xs text-[#666] mt-3 text-center">
+                        Don&apos;t have an account?{' '}
+                        <Link href="/register" onClick={() => setAccountOpen(false)} className="text-[#005334] hover:underline">
+                          Register
+                        </Link>
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
             <Link href="/cart" className="gs-action-btn gs-cart-link" id="cart_bl">
               <span className="gs-action-icon"><ShoppingCart size={23} /></span>
               <span>Cart</span>
@@ -199,47 +245,13 @@ export default function Header() {
           </div>
         </div>
 
-        {accountOpen && (
-          <div className="absolute right-8 top-full bg-white shadow-lg rounded border border-[#ddd] p-4 z-50 w-72 anim-slide-down">
-            {signedIn ? (
-              <div>
-                <p className="text-sm font-medium mb-1">Welcome, {session.user.name || session.user.email}</p>
-                <p className="text-xs text-gray-500 mb-3">{session.user.email}</p>
-                <button
-                  onClick={() => { signOut({ callbackUrl: '/' }); setAccountOpen(false) }}
-                  className="w-full text-sm text-[#005334] hover:underline"
-                >
-                  Sign Out
-                </button>
-              </div>
-            ) : (
-              <div>
-                <p className="text-sm font-medium mb-3">Sign In to Your Account</p>
-                <Link
-                  href="/login"
-                  onClick={() => setAccountOpen(false)}
-                  className="block w-full bg-[#005334] text-white py-2 rounded text-sm font-medium hover:bg-[#003d26] transition-colors text-center"
-                >
-                  Sign In
-                </Link>
-                <p className="text-xs text-[#666] mt-3 text-center">
-                  Don&apos;t have an account?{' '}
-                  <Link href="/register" onClick={() => setAccountOpen(false)} className="text-[#005334] hover:underline">
-                    Register
-                  </Link>
-                </p>
-              </div>
-            )}
-          </div>
-        )}
-
         <nav className="gs-desktop-nav">
           <div className="gs-nav-left">
             <Link href="/">Home</Link>
             <div
               onMouseEnter={() => { if (gemstonesTimerRef.current) clearTimeout(gemstonesTimerRef.current); setGemstonesOpen(true) }}
-              onMouseLeave={() => { gemstonesTimerRef.current = setTimeout(() => setGemstonesOpen(false), 150) }}
-              style={{ position: 'relative' }}
+              onMouseLeave={() => { gemstonesTimerRef.current = setTimeout(() => setGemstonesOpen(false), 250) }}
+              style={{ position: 'relative', paddingBottom: 8, marginBottom: -8 }}
             >
               <button className="flex items-center gap-1 text-white text-sm font-normal nav-underline">
                 Gemstones <ChevronDown size={14} />
@@ -247,7 +259,7 @@ export default function Header() {
               {gemstonesOpen && (
                 <div className="gs-dropdown-panel absolute left-0 top-full bg-white shadow-lg rounded-b p-4 z-50 w-[600px] anim-slide-down" style={{boxShadow: '0 8px 24px rgba(0,0,0,0.12)'}}
                   onMouseEnter={() => { if (gemstonesTimerRef.current) clearTimeout(gemstonesTimerRef.current) }}
-                  onMouseLeave={() => { gemstonesTimerRef.current = setTimeout(() => setGemstonesOpen(false), 150) }}
+                  onMouseLeave={() => { gemstonesTimerRef.current = setTimeout(() => setGemstonesOpen(false), 250) }}
                 >
                   <div className="grid grid-cols-3 gap-1">
                     {categories.map(c => (
@@ -268,8 +280,8 @@ export default function Header() {
             <Link href="/all-gemstones">New Arrivals</Link>
             <div
               onMouseEnter={() => { if (helpTimerRef.current) clearTimeout(helpTimerRef.current); setHelpOpen(true) }}
-              onMouseLeave={() => { helpTimerRef.current = setTimeout(() => setHelpOpen(false), 150) }}
-              style={{ position: 'relative' }}
+              onMouseLeave={() => { helpTimerRef.current = setTimeout(() => setHelpOpen(false), 250) }}
+              style={{ position: 'relative', paddingBottom: 8, marginBottom: -8 }}
             >
               <button className="flex items-center gap-1 text-white text-sm font-normal nav-underline">
                 Help <ChevronDown size={14} />
@@ -277,7 +289,7 @@ export default function Header() {
               {helpOpen && (
                 <div className="gs-dropdown-panel absolute left-0 top-full bg-white shadow-lg rounded-b py-2 z-50 min-w-[200px] anim-slide-down"
                   onMouseEnter={() => { if (helpTimerRef.current) clearTimeout(helpTimerRef.current) }}
-                  onMouseLeave={() => { helpTimerRef.current = setTimeout(() => setHelpOpen(false), 150) }}
+                  onMouseLeave={() => { helpTimerRef.current = setTimeout(() => setHelpOpen(false), 250) }}
                 >
                   {helpSubLinks.map((l, i) => (
                     <Link key={i} href={l.to} className="block px-4 py-1.5 text-sm text-[#333] hover:bg-[#f5f8f5]">{l.label}</Link>
@@ -485,9 +497,14 @@ export default function Header() {
 
               <li>
                 {signedIn ? (
-                  <button onClick={() => { signOut({ callbackUrl: '/' }); setMobileOpen(false) }} className="menu-link w-full text-left">
-                    Sign Out
-                  </button>
+                  <>
+                    <Link href="/orders" onClick={() => setMobileOpen(false)} className="menu-link">
+                      My Orders
+                    </Link>
+                    <button onClick={() => { signOut({ callbackUrl: '/' }); setMobileOpen(false) }} className="menu-link w-full text-left">
+                      Sign Out
+                    </button>
+                  </>
                 ) : (
                   <Link href="/login" onClick={() => setMobileOpen(false)} className="menu-link">
                     Login / Register
