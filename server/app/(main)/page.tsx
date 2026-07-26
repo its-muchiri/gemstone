@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
-import { bestSellers } from '@/data/bestSellers'
-import { testimonials } from '@/data/testimonials'
+import Image from 'next/image'
+import { bestSellers, testimonials } from '@/lib/static-data'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function Home() {
@@ -11,7 +11,15 @@ export default function Home() {
     <div className="page-enter">
       {/* Hero */}
       <section className="gs-hero">
-        <img src="/images/gemselect-gemstones-for-sale.jpg" alt="Natural Gemstones for Sale" className="hero-img-ken-burns" />
+        <Image
+          src="/images/gemselect-gemstones-for-sale.jpg"
+          alt="Natural Gemstones for Sale"
+          width={1920}
+          height={800}
+          priority
+          className="hero-img-ken-burns"
+          sizes="100vw"
+        />
         <div className="gs-hero-overlay">
           <h1 className="anim-slide-up">Natural Loose Gemstones for Jewelry &amp; Collecting</h1>
           <p className="anim-slide-up" style={{animationDelay: '0.1s'}}>Trusted by Jewelers, Designers, Collectors &amp; Gem Enthusiasts Worldwide</p>
@@ -26,15 +34,15 @@ export default function Home() {
       {/* Trust Strip */}
       <div className="gs-trust-bar">
         <div className="gs-trust-bar-item trust-icon-hover scroll-reveal delay-1">
-          <img src="/images/m_report.png" alt="" />
+          <Image src="/images/m_report.png" alt="" width={48} height={48} loading="lazy" />
           <div><strong>Independent Gem Reports</strong><small>Included With Every Order</small></div>
         </div>
         <div className="gs-trust-bar-item trust-icon-hover scroll-reveal delay-2">
-          <img src="/images/m_worldwide.png" alt="" />
+          <Image src="/images/m_worldwide.png" alt="" width={48} height={48} loading="lazy" />
           <div><strong>Worldwide Shipping</strong><small>Free &amp; Insured</small></div>
         </div>
         <div className="gs-trust-bar-item trust-icon-hover scroll-reveal delay-3">
-          <img src="/images/m_return.png" alt="" />
+          <Image src="/images/m_return.png" alt="" width={48} height={48} loading="lazy" />
           <div><strong>30-Day Returns</strong><small>No Questions Asked</small></div>
         </div>
       </div>
@@ -46,7 +54,7 @@ export default function Home() {
           {bestSellers.map((bs, i) => (
             <Link key={bs.categorySlug} href={`/gemstones/${bs.categorySlug}`}
               className={`gs-best-seller-card best-seller-card scroll-reveal delay-${(i % 12) + 1}`}>
-              <img src={bs.imageUrl} alt={`${bs.name} Gemstones`} className="product-img-hover" />
+              <Image src={bs.imageUrl} alt={`${bs.name} Gemstones`} width={200} height={200} loading="lazy" sizes="(max-width: 640px) 33vw, 150px" className="product-img-hover" />
               <span>{bs.name}</span>
             </Link>
           ))}
@@ -61,7 +69,7 @@ export default function Home() {
             {testimonials.slice(0, 9).map((t, i) => (
               <div key={t.id} className={`gs-testimonial best-seller-card scroll-reveal delay-${(i % 12) + 1}`}>
                 <div className="gs-testimonial-stars">
-                  <img src="/images/gs_rating_10.gif" alt="Rating" style={{height: 12}} />
+                  <Image src="/images/gs_rating_10.gif" alt="Rating" width={80} height={12} loading="lazy" />
                   <span style={{fontSize: 13, fontWeight: 'bold', color: '#005334', marginLeft: 6}}>{t.rating}</span>
                 </div>
                 <p className="gs-testimonial-text">&ldquo;{t.quote}&rdquo;</p>
@@ -79,7 +87,7 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-4 py-8">
         <h3 className="text-lg font-bold mb-4 uppercase tracking-wide scroll-reveal">Partners and Trust</h3>
         <Link href="/help" className="block rounded-lg overflow-hidden border border-border hover:shadow-md transition-shadow scroll-reveal">
-          <img src="/images/trust_desktop_2.jpg" alt="Partners and Trust" className="w-full object-cover" />
+          <Image src="/images/trust_desktop_2.jpg" alt="Partners and Trust" width={800} height={200} loading="lazy" sizes="(max-width: 768px) 100vw, 800px" className="w-full object-cover" />
         </Link>
       </section>
 

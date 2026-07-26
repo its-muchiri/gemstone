@@ -6,8 +6,16 @@ export async function GET(
   { params }: { params: { slug: string } }
 ) {
   try {
-    const product = await prisma.product.findUnique({
-      where: { slug: params.slug },
+    const param = params.slug
+
+    const product = await prisma.product.findFirst({
+      where: {
+        OR: [
+          { slug: param },
+          { sku: param },
+          { id: param },
+        ],
+      },
       include: { category: { select: { id: true, name: true, slug: true } } },
     })
 

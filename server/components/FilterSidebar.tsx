@@ -1,7 +1,8 @@
 'use client'
 import { useState, useCallback, type ReactNode } from 'react'
 import { ChevronDown, ChevronUp } from 'lucide-react'
-import { categories } from '@/data/categories'
+
+const defaultColors = ['Blue', 'Red', 'Green', 'Yellow', 'Pink', 'Black', 'White', 'Orange', 'Brown', 'Gray', 'Multicolor', 'Purple', 'Violet', 'Bi-Color']
 
 export interface Filters {
   color: string
@@ -53,7 +54,7 @@ export default function FilterSidebar({ filters, onChange, categoryColors }: Fil
     onChange({ ...filters, ...partial })
   }
 
-  const colors = categoryColors || [...new Set(categories.flatMap(c => c.colors))]
+  const colors = categoryColors || defaultColors
 
   return (
     <aside className="gs-sidebar" style={{width: '100%'}}>

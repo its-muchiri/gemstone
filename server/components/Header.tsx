@@ -1,14 +1,15 @@
 'use client'
 import { useState, useRef, useEffect, useCallback } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useSession, signOut } from 'next-auth/react'
 import { Search, ShoppingCart, Heart, User, Menu, X, ChevronDown, ChevronRight } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
 import { useWishlist } from '@/context/WishlistContext'
 import { useCurrency, type Currency } from '@/context/CurrencyContext'
-import { searchProducts } from '@/data/products'
-import { categories } from '@/data/categories'
+import { apiProductToFrontend } from '@/lib/api'
+import type { Product } from '@/types'
 
 const popularGems = ['Sapphire', 'Topaz', 'Amethyst', 'Emerald', 'Citrine', 'Ruby', 'Tourmaline', 'Garnet', 'Tanzanite', 'Aquamarine', 'Opal', 'Zircon']
 const mainCategories = ['Top Grade Gemstones', 'Gemstones By Piece', 'Cabochon Gemstones', 'Matching Gemstone Pairs', 'Gemstone Lots', 'Untreated Gemstones', 'Star Gemstones', 'Color Change Gemstones', "Cat's Eye Gemstones", 'Gemstone Carvings', 'Drilled Gemstones', 'Calibrated Gemstones', 'Fancy Cut Gemstones']
@@ -27,10 +28,18 @@ const helpSubLinks = [
   { to: '/help', label: 'Help Central' },
 ]
 
+interface ApiCategory {
+  id: string
+  slug: string
+  name: string
+  description: string | null
+  _count: { products: number }
+}
+
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
-  const [suggestions, setSuggestions] = useState<ReturnType<typeof searchProducts>>([])
+  const [suggestions, setSuggestions] = useState<Product[]>([])
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [accountOpen, setAccountOpen] = useState(false)
   const [gemstonesOpen, setGemstonesOpen] = useState(false)
@@ -38,13 +47,22 @@ export default function Header() {
   const [mobileSection, setMobileSection] = useState<string | null>(null)
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false)
   const [currencyOpen, setCurrencyOpen] = useState(false)
+  const [categories, setCategories] = useState<ApiCategory[]>([])
   const searchRef = useRef<HTMLDivElement>(null)
+  const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null) as React.MutableRefObject<ReturnType<typeof setTimeout> | null>
   const router = useRouter()
   const { data: session } = useSession()
   const { totalItems } = useCart()
   const { items: wishlistItems } = useWishlist()
   const { currency, setCurrency } = useCurrency()
   const signedIn = !!session
+
+  useEffect(() => {
+    fetch('/api/categories')
+      .then(r => r.json())
+      .then((data: ApiCategory[]) => setCategories(data))
+      .catch(() => {})
+  }, [])
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -58,9 +76,17 @@ export default function Header() {
 
   const handleSearch = useCallback((q: string) => {
     setSearchQuery(q)
+    if (searchTimerRef.current) clearTimeout(searchTimerRef.current)
     if (q.trim().length > 1) {
-      setSuggestions(searchProducts(q).slice(0, 6))
-      setShowSuggestions(true)
+      searchTimerRef.current = setTimeout(() => {
+        fetch(`/api/products?search=${encodeURIComponent(q.trim())}&limit=6`)
+          .then(r => r.json())
+          .then(data => {
+            setSuggestions((data.products || []).map(apiProductToFrontend))
+            setShowSuggestions(true)
+          })
+          .catch(() => { setSuggestions([]); setShowSuggestions(false) })
+      }, 300)
     } else {
       setSuggestions([])
       setShowSuggestions(false)
@@ -87,7 +113,7 @@ export default function Header() {
       <div className="gs-header hidden lg:block">
         <div className="gs-desktop-top">
           <Link href="/" className="gs-logo">
-            <img src="/images/m_logo_gs.jpg" alt="GemSelect" />
+            <Image src="/images/m_logo_gs.jpg" alt="GemSelect" width={140} height={40} priority />
           </Link>
 
           <div ref={searchRef} className="gs-search-form" style={{ position: 'relative' }}>
@@ -108,7 +134,7 @@ export default function Header() {
                   <Link key={p.id} href={`/product/${p.id}`}
                     onClick={() => { setShowSuggestions(false); setSearchQuery('') }}
                     className="flex items-center gap-3 px-4 py-2 hover:bg-[#f5f8f5] transition-colors">
-                    <img src={p.imageUrl} alt="" className="w-10 h-10 rounded object-cover" />
+                    <Image src={p.imageUrl} alt="" width={40} height={40} className="w-10 h-10 rounded object-cover" loading="lazy" />
                     <div>
                       <div className="text-sm font-medium">{p.name}</div>
                       <div className="text-xs text-[#666]">{p.weightCarats} ct — ${p.price.toLocaleString()}</div>
@@ -125,21 +151,21 @@ export default function Header() {
 
           <div className="gs-trust-inline">
             <div>
-              <img src="/images/m_report.png" alt="" />
+              <Image src="/images/m_report.png" alt="" width={32} height={32} loading="lazy" />
               <div>
                 <b>Free Report</b>
                 <small>Included</small>
               </div>
             </div>
             <div>
-              <img src="/images/m_worldwide.png" alt="" />
+              <Image src="/images/m_worldwide.png" alt="" width={32} height={32} loading="lazy" />
               <div>
                 <b>Worldwide</b>
                 <small>Shipping</small>
               </div>
             </div>
             <div>
-              <img src="/images/m_return.png" alt="" />
+              <Image src="/images/m_return.png" alt="" width={32} height={32} loading="lazy" />
               <div>
                 <b>30 Day</b>
                 <small>Returns</small>
@@ -281,7 +307,7 @@ export default function Header() {
             <Menu size={26} />
           </button>
           <Link href="/" className="m-logo">
-            <img src="/images/m_logo_gs.jpg" alt="GemSelect" />
+            <Image src="/images/m_logo_gs.jpg" alt="GemSelect" width={120} height={36} loading="lazy" />
           </Link>
           <div className="m-icons">
             <button onClick={() => setMobileSearchOpen(!mobileSearchOpen)} className="m-icon-btn" aria-label="Search">

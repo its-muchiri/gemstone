@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const languages = ['English', 'Français', 'Español', 'Italiano', 'Deutsch', 'Русский', '中文', '日本語', 'العربية', 'Português', '한국인']
 
@@ -98,27 +99,27 @@ export default function Footer() {
       </div>
 
       <div className="gs-footer-payments">
-        <img src="/images/pay-options_footer.jpg" alt="Payment Options" />
+        <Image src="/images/pay-options_footer.jpg" alt="Payment Options" width={400} height={40} loading="lazy" />
       </div>
       <div className="gs-footer-partners">
-        <img src="/images/partners_footer.jpg" alt="Partners" />
+        <Image src="/images/partners_footer.jpg" alt="Partners" width={400} height={60} loading="lazy" />
       </div>
 
       <div style={{display: 'flex', justifyContent: 'center', gap: 12, padding: '12px 0'}}>
         <a href="https://www.facebook.com/gemselect" target="_blank" rel="noopener noreferrer">
-          <img src="/images/gemselect-facebook.png" alt="Facebook" style={{height: 32}} />
+          <Image src="/images/gemselect-facebook.png" alt="Facebook" width={32} height={32} loading="lazy" />
         </a>
         <a href="https://www.pinterest.com/gemselect/" target="_blank" rel="noopener noreferrer">
-          <img src="/images/gemselect-pinterest.png" alt="Pinterest" style={{height: 32}} />
+          <Image src="/images/gemselect-pinterest.png" alt="Pinterest" width={32} height={32} loading="lazy" />
         </a>
         <a href="https://www.linkedin.com/in/gemselect/" target="_blank" rel="noopener noreferrer">
-          <img src="/images/gemselect-linkedin.png" alt="LinkedIn" style={{height: 32}} />
+          <Image src="/images/gemselect-linkedin.png" alt="LinkedIn" width={32} height={32} loading="lazy" />
         </a>
         <a href="https://www.instagram.com/gemselect_gems/" target="_blank" rel="noopener noreferrer">
-          <img src="/images/gemselect-instagram.png" alt="Instagram" style={{height: 32}} />
+          <Image src="/images/gemselect-instagram.png" alt="Instagram" width={32} height={32} loading="lazy" />
         </a>
         <a href="https://www.youtube.com/@gemselect-settcompanyltd939" target="_blank" rel="noopener noreferrer">
-          <img src="/images/gemselect-youtube.png" alt="YouTube" style={{height: 32}} />
+          <Image src="/images/gemselect-youtube.png" alt="YouTube" width={32} height={32} loading="lazy" />
         </a>
       </div>
 

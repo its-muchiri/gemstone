@@ -1,7 +1,10 @@
 import { timingSafeEqual } from 'crypto'
 
 const API_KEY = process.env.NOWPAYMENTS_API_KEY!
-const API_BASE = process.env.NOWPAYMENTS_API_BASE || 'https://api.nowpayments.io/v1'
+const isSandbox = process.env.NOWPAYMENTS_SANDBOX === 'true'
+const API_BASE = isSandbox
+  ? 'https://api-sandbox.nowpayments.io/v1'
+  : (process.env.NOWPAYMENTS_API_BASE || 'https://api.nowpayments.io/v1')
 
 interface NowPaymentsInvoiceRequest {
   price_amount: number

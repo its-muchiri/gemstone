@@ -207,18 +207,19 @@ export default function Header() {
                 Gemstones <ChevronDown size={14} />
               </button>
               {gemstonesOpen && (
-                <div className="absolute left-0 top-full bg-white shadow-lg rounded-b border border-[#ddd] p-4 z-50 w-[600px] anim-slide-down" style={{boxShadow: '0 8px 24px rgba(0,0,0,0.12)'}}>
-                  <div className="grid grid-cols-3 gap-1">
+                <div className="gs-dropdown-gems anim-slide-down">
+                  <div className="gs-dropdown-gems-grid">
                     {categories.map(c => (
                       <Link key={c.slug} to={`/gemstones/${c.slug}`}
-                        className="flex items-center gap-2 px-3 py-2 rounded hover:bg-[#f5f8f5] transition-colors text-sm text-[#333]">
-                        <span>{c.name}</span>
+                        className="gs-dropdown-gem-item">
+                        <span className="gs-dropdown-gem-name">{c.name}</span>
+                        <span className="gs-dropdown-gem-count">{c.productCount}</span>
                       </Link>
                     ))}
                   </div>
-                  <div className="mt-3 pt-3 border-t border-[#ddd]">
-                    <Link to="/all-gemstones" className="text-[#005334] text-sm font-medium hover:underline">
-                      Browse All Gemstones →
+                  <div className="gs-dropdown-gems-footer">
+                    <Link to="/all-gemstones" className="gs-dropdown-gems-browse">
+                      Browse All Gemstones <span>→</span>
                     </Link>
                   </div>
                 </div>
@@ -234,9 +235,12 @@ export default function Header() {
                 Help <ChevronDown size={14} />
               </button>
               {helpOpen && (
-                <div className="absolute left-0 top-full bg-white shadow-lg rounded-b border border-[#ddd] py-2 z-50 min-w-[200px] anim-slide-down">
+                <div className="gs-dropdown-help anim-slide-down">
+                  <div className="gs-dropdown-help-header">How can we help?</div>
                   {helpSubLinks.map((l, i) => (
-                    <Link key={i} to={l.to} className="block px-4 py-1.5 text-sm text-[#333] hover:bg-[#f5f8f5]">{l.label}</Link>
+                    <Link key={i} to={l.to} className="gs-dropdown-help-item">
+                      {l.label}
+                    </Link>
                   ))}
                 </div>
               )}

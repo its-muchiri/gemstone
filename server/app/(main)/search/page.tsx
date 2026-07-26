@@ -1,27 +1,56 @@
 'use client'
-import { Suspense, useState, useMemo } from 'react'
+import { Suspense, useState, useEffect, useMemo } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Search as SearchIcon } from 'lucide-react'
-import { searchProducts } from '@/data/products'
-import { categories } from '@/data/categories'
+import { apiProductToFrontend } from '@/lib/api'
+import type { Product } from '@/types'
 import ProductCard from '@/components/ProductCard'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
+
+interface ApiCategory {
+  id: string
+  slug: string
+  name: string
+  description: string | null
+  _count: { products: number }
+}
 
 function SearchContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const query = searchParams.get('q') || ''
   const [inputValue, setInputValue] = useState(query)
+  const [results, setResults] = useState<Product[]>([])
+  const [categories, setCategories] = useState<ApiCategory[]>([])
+  const [loading, setLoading] = useState(false)
   useScrollReveal()
 
-  const results = useMemo(() => query ? searchProducts(query) : [], [query])
+  useEffect(() => {
+    if (!query) { setResults([]); return }
+    setLoading(true)
+    const params = new URLSearchParams({ search: query, limit: '100' })
+    fetch(`/api/products?${params}`)
+      .then(r => r.json())
+      .then(data => {
+        setResults((data.products || []).map(apiProductToFrontend))
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
+  }, [query])
+
+  useEffect(() => {
+    fetch('/api/categories')
+      .then(r => r.json())
+      .then((data: ApiCategory[]) => setCategories(data))
+      .catch(() => {})
+  }, [])
 
   const matchedCategories = useMemo(() => {
     if (!query) return []
     const q = query.toLowerCase()
     return categories.filter(c => c.name.toLowerCase().includes(q) || c.slug.includes(q))
-  }, [query])
+  }, [query, categories])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()

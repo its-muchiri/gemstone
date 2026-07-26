@@ -1,19 +1,29 @@
 'use client'
-import { useState, useMemo } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import { SlidersHorizontal } from 'lucide-react'
-import { products as allProducts } from '@/data/products'
-import { getCategoryBySlug } from '@/data/categories'
+import { apiProductToFrontend } from '@/lib/api'
+import type { Product } from '@/types'
 import ProductCard from '@/components/ProductCard'
 import FilterSidebar, { type Filters } from '@/components/FilterSidebar'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 const ITEMS_PER_PAGE = 12
 
+interface ApiCategory {
+  id: string
+  slug: string
+  name: string
+  description: string | null
+  _count: { products: number }
+}
+
 export default function CategoryPage() {
   const { slug } = useParams<{ slug: string }>()
-  const category = getCategoryBySlug(slug || '')
+  const [allProducts, setAllProducts] = useState<Product[]>([])
+  const [category, setCategory] = useState<ApiCategory | null>(null)
+  const [loading, setLoading] = useState(true)
   const [sort, setSort] = useState('best-selling')
   const [page, setPage] = useState(1)
   const [showFilters, setShowFilters] = useState(false)
@@ -22,8 +32,22 @@ export default function CategoryPage() {
   })
   useScrollReveal()
 
+  useEffect(() => {
+    if (!slug) return
+    setLoading(true)
+
+    Promise.all([
+      fetch(`/api/products?category=${slug}&limit=500`).then(r => r.json()),
+      fetch('/api/categories').then(r => r.json()),
+    ]).then(([productData, cats]: [any, ApiCategory[]]) => {
+      setAllProducts((productData.products || []).map(apiProductToFrontend))
+      setCategory(cats.find((c: ApiCategory) => c.slug === slug) || null)
+      setLoading(false)
+    }).catch(() => setLoading(false))
+  }, [slug])
+
   const categoryProducts = useMemo(() => {
-    let filtered = allProducts.filter(p => p.category === slug)
+    let filtered = allProducts
 
     if (filters.color) {
       filtered = filtered.filter(p => p.color.toLowerCase().includes(filters.color.toLowerCase()))
@@ -56,10 +80,19 @@ export default function CategoryPage() {
       case 'newest': return [...filtered].sort((a, b) => b.dateAdded.localeCompare(a.dateAdded))
       default: return filtered
     }
-  }, [slug, sort, filters])
+  }, [allProducts, sort, filters])
 
   const totalPages = Math.ceil(categoryProducts.length / ITEMS_PER_PAGE)
   const paginated = categoryProducts.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE)
+  const categoryColors = [...new Set(allProducts.map(p => p.color))].sort()
+
+  if (loading) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-16 text-center">
+        <p style={{color: '#999'}}>Loading gemstones...</p>
+      </div>
+    )
+  }
 
   if (!category) {
     return (
@@ -85,7 +118,7 @@ export default function CategoryPage() {
 
       <div className="flex flex-col md:flex-row gap-6">
         <div className="hidden lg:block" style={{width: 220, flexShrink: 0}}>
-          <FilterSidebar filters={filters} onChange={(f) => { setFilters(f); setPage(1) }} categoryColors={category.colors} />
+          <FilterSidebar filters={filters} onChange={(f) => { setFilters(f); setPage(1) }} categoryColors={categoryColors} />
         </div>
 
         <button onClick={() => setShowFilters(!showFilters)}
@@ -95,7 +128,7 @@ export default function CategoryPage() {
         </button>
         {showFilters && (
           <div className="lg:hidden">
-            <FilterSidebar filters={filters} onChange={(f) => { setFilters(f); setPage(1) }} categoryColors={category.colors} />
+            <FilterSidebar filters={filters} onChange={(f) => { setFilters(f); setPage(1) }} categoryColors={categoryColors} />
           </div>
         )}
 

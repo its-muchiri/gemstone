@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ShoppingCart, ArrowLeft, CheckCircle, ArrowRight, CreditCard, Smartphone, Package, ChevronRight } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
 import { useCurrency } from '@/context/CurrencyContext'
@@ -247,7 +248,7 @@ export default function CartPage() {
               {items.map(({ product, quantity }, i) => (
                 <div key={product.id} className="cart-item cart-item-enter" style={{animationDelay: `${i * 0.05}s`}}>
                   <Link href={`/product/${product.id}`} style={{flexShrink: 0}}>
-                    <img src={product.imageUrl} alt={product.name} style={{width: 80, height: 80, objectFit: 'contain'}} className="product-img-hover" />
+                    <Image src={product.imageUrl} alt={product.name} width={80} height={80} loading="lazy" sizes="80px" style={{objectFit: 'contain'}} className="product-img-hover" />
                   </Link>
                   <div style={{minWidth: 0}}>
                     <Link href={`/product/${product.id}`} style={{fontWeight: 'bold', fontSize: 13, color: '#333'}}>

@@ -88,18 +88,19 @@ export async function POST(req: NextRequest) {
         await decrementStock(payment.orderId)
       } catch (err) {
         console.error('NowPayments IPN: Failed to transition order to PAID:', err instanceof Error ? err.message : err)
+        return new NextResponse('Order transition failed', { status: 500 })
       }
     } else if (mappedStatus === 'FAILED' || mappedStatus === 'EXPIRED') {
       try {
         await transitionOrderStatus(payment.orderId, 'FAILED')
       } catch {
-        // Order may already be in a terminal state
+        return new NextResponse('Order transition failed', { status: 500 })
       }
     }
 
     return new NextResponse(null, { status: 200 })
   } catch (error) {
     console.error('NowPayments webhook error:', error instanceof Error ? error.message : error)
-    return new NextResponse(null, { status: 200 })
+    return new NextResponse('Internal server error', { status: 500 })
   }
 }

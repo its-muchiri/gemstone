@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ShoppingCart, Heart } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
 import { useWishlist } from '@/context/WishlistContext'
@@ -15,8 +16,15 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <div className="product-tile category-tile-hover">
       <Link href={`/product/${product.id}`} className="block relative">
-        <img src={product.imageUrl} alt={product.name}
-          className="product-tile-img product-img-hover" />
+        <Image
+          src={product.imageUrl}
+          alt={product.name}
+          width={300}
+          height={300}
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          className="product-tile-img product-img-hover"
+          loading="lazy"
+        />
         {!product.inStock && (
           <span style={{position: 'absolute', top: 6, left: 6, background: '#cc0000', color: '#fff', fontSize: 10, fontWeight: 'bold', padding: '2px 8px', borderRadius: 3, letterSpacing: '0.5px', textTransform: 'uppercase'}}>Out of Stock</span>
         )}

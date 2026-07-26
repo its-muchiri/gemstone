@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 import { hash } from 'bcryptjs'
-import { products } from '../data/products'
+import { products } from './seed-data'
 
 const prisma = new PrismaClient()
 

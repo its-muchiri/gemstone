@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Heart, ShoppingCart } from 'lucide-react'
 import { useWishlist } from '@/context/WishlistContext'
 import { useCart } from '@/context/CartContext'
@@ -30,7 +31,7 @@ export default function WishlistPage() {
         {items.map((product, i) => (
           <div key={product.id} className={`product-tile scroll-reveal delay-${(i % 12) + 1}`}>
             <Link href={`/product/${product.id}`}>
-              <img src={product.imageUrl} alt={product.name} className="product-tile-img product-img-hover" />
+              <Image src={product.imageUrl} alt={product.name} width={200} height={200} loading="lazy" sizes="(max-width: 640px) 50vw, 200px" className="product-tile-img product-img-hover" />
             </Link>
             <Link href={`/product/${product.id}`} className="product-tile-name">
               {product.name}

@@ -1,9 +1,11 @@
 'use client'
-import { useState, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ShoppingCart, Heart, Truck, RotateCcw, Shield } from 'lucide-react'
-import { getProductById, products as allProducts } from '@/data/products'
+import { apiProductToFrontend } from '@/lib/api'
+import type { Product } from '@/types'
 import { useCart } from '@/context/CartContext'
 import { useWishlist } from '@/context/WishlistContext'
 import { useCurrency } from '@/context/CurrencyContext'
@@ -12,7 +14,9 @@ import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function ProductPage() {
   const { id } = useParams<{ id: string }>()
-  const product = id ? getProductById(id) : undefined
+  const [product, setProduct] = useState<Product | null>(null)
+  const [relatedProducts, setRelatedProducts] = useState<Product[]>([])
+  const [loading, setLoading] = useState(true)
   const [qty, setQty] = useState(1)
   const [mainImg, setMainImg] = useState(0)
   const [activeTab, setActiveTab] = useState('description')
@@ -23,10 +27,41 @@ export default function ProductPage() {
   const inWish = product ? isInWishlist(product.id) : false
   useScrollReveal()
 
-  const related = useMemo(() => {
-    if (!product) return []
-    return allProducts.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4)
-  }, [product])
+  useEffect(() => {
+    if (!id) return
+    setLoading(true)
+
+    fetch(`/api/products/${id}`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (!data) { setLoading(false); return }
+        const mapped = apiProductToFrontend(data)
+        setProduct(mapped)
+
+        if (data.category?.slug) {
+          fetch(`/api/products?category=${data.category.slug}&limit=5`)
+            .then(r => r.json())
+            .then(rel => {
+              const related = (rel.products || [])
+                .map(apiProductToFrontend)
+                .filter((p: Product) => p.id !== mapped.id)
+                .slice(0, 4)
+              setRelatedProducts(related)
+            })
+            .catch(() => {})
+        }
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
+  }, [id])
+
+  if (loading) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-16 text-center">
+        <p style={{color: '#999'}}>Loading product...</p>
+      </div>
+    )
+  }
 
   if (!product) {
     return (
@@ -52,8 +87,12 @@ export default function ProductPage() {
           <div style={{border: '1px solid #e0e6e0', padding: 10, background: '#fafafa', marginBottom: 10, borderRadius: 4, overflow: 'hidden', cursor: 'zoom-in'}}
             onMouseEnter={() => setImgZoom(true)}
             onMouseLeave={() => setImgZoom(false)}>
-            <img src={thumbnails[mainImg]} alt={product.name}
+            <Image src={thumbnails[mainImg]} alt={product.name}
+              width={600}
+              height={600}
+              priority
               className="gem-detail-img"
+              sizes="(max-width: 768px) 100vw, 50vw"
               style={{transition: 'transform 0.3s ease', transform: imgZoom ? 'scale(1.06)' : 'scale(1)'}} />
           </div>
           <div style={{display: 'flex', gap: 6}}>
@@ -63,7 +102,7 @@ export default function ProductPage() {
                   width: 60, height: 60, border: i === mainImg ? '2px solid #005334' : '1px solid #ddd',
                   background: '#fff', padding: 2, cursor: 'pointer', borderRadius: 3, transition: 'border-color 0.15s'
                 }}>
-                <img src={img} alt="" style={{width: '100%', height: '100%', objectFit: 'contain'}} />
+                <Image src={img} alt="" width={56} height={56} loading="lazy" style={{width: '100%', height: '100%', objectFit: 'contain'}} />
               </button>
             ))}
           </div>
@@ -193,11 +232,11 @@ export default function ProductPage() {
         )}
       </div>
 
-      {related.length > 0 && (
+      {relatedProducts.length > 0 && (
         <div style={{marginTop: 20}}>
           <h2 className="scroll-reveal" style={{fontSize: 18, fontWeight: 'bold', marginBottom: 16, color: '#1a3a24', paddingBottom: 8, borderBottom: '2px solid #005334', display: 'inline-block'}}>You May Also Like</h2>
           <div className="product-grid" style={{marginTop: 12}}>
-            {related.map((p, i) => (
+            {relatedProducts.map((p, i) => (
               <div key={p.id} className={`scroll-reveal delay-${(i % 4) + 1}`}>
                 <ProductCard product={p} />
               </div>

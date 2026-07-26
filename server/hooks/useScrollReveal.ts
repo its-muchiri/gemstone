@@ -1,54 +1,61 @@
+'use client'
 import { useEffect, useRef, useCallback } from 'react'
 
+let sharedObserver: IntersectionObserver | null = null
+const observedElements = new WeakSet<Element>()
+
+function getObserver() {
+  if (sharedObserver) return sharedObserver
+  sharedObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed')
+          sharedObserver!.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
+  )
+  return sharedObserver
+}
+
+function observeNewElements() {
+  const targets = document.querySelectorAll(
+    '.scroll-reveal:not(.revealed), .scroll-reveal-left:not(.revealed), .scroll-reveal-scale:not(.revealed)'
+  )
+  const observer = getObserver()
+  targets.forEach((t) => {
+    if (!observedElements.has(t)) {
+      observedElements.add(t)
+      observer.observe(t)
+    }
+  })
+}
+
 export function useScrollReveal() {
-  const ref = useRef<HTMLDivElement>(null)
+  const initRef = useRef(false)
 
-  const observe = useCallback(() => {
-    const targets = document.querySelectorAll(
-      '.scroll-reveal:not(.revealed), .scroll-reveal-left:not(.revealed), .scroll-reveal-scale:not(.revealed)'
-    )
+  useEffect(() => {
+    if (initRef.current) return
+    initRef.current = true
 
-    if (!targets.length) return
-
-    const prefersReduced = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches
-
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (prefersReduced) {
-      targets.forEach((t) => t.classList.add('revealed'))
+      document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-scale')
+        .forEach((t) => t.classList.add('revealed'))
       return
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
-    )
+    observeNewElements()
 
-    targets.forEach((t) => observer.observe(t))
-
-    return () => observer.disconnect()
-  }, [])
-
-  useEffect(() => {
-    const cleanup = observe()
-
-    const onScroll = () => {
-      observe()
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
+    const mutationObserver = new MutationObserver(() => {
+      observeNewElements()
+    })
+    mutationObserver.observe(document.body, { childList: true, subtree: true })
 
     return () => {
-      cleanup?.()
-      window.removeEventListener('scroll', onScroll)
+      mutationObserver.disconnect()
     }
-  }, [observe])
-
-  return ref
+  }, [])
 }
