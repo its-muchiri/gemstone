@@ -3,25 +3,30 @@ import type { NextRequest } from 'next/server'
 import { getToken } from 'next-auth/jwt'
 
 export async function middleware(req: NextRequest) {
-  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET })
-  const { pathname } = req.nextUrl
+  try {
+    const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET })
+    const { pathname } = req.nextUrl
 
-  if (pathname.startsWith('/api/admin')) {
-    if (!token) {
-      return NextResponse.json({ error: 'Unauthenticated' }, { status: 401 })
+    if (pathname.startsWith('/api/admin')) {
+      if (!token) {
+        return NextResponse.json({ error: 'Unauthenticated' }, { status: 401 })
+      }
+      if (token.role !== 'ADMIN') {
+        return NextResponse.json({ error: 'Forbidden: admin access required' }, { status: 403 })
+      }
     }
-    if (token.role !== 'ADMIN') {
-      return NextResponse.json({ error: 'Forbidden: admin access required' }, { status: 403 })
+
+    if (pathname.startsWith('/api/orders') || pathname.startsWith('/api/wishlist') || pathname.startsWith('/api/checkout')) {
+      if (!token) {
+        return NextResponse.json({ error: 'Unauthenticated' }, { status: 401 })
+      }
     }
+
+    return NextResponse.next()
+  } catch (error) {
+    console.error('Middleware error:', error instanceof Error ? error.message : error)
+    return NextResponse.next()
   }
-
-  if (pathname.startsWith('/api/orders') || pathname.startsWith('/api/wishlist') || pathname.startsWith('/api/checkout')) {
-    if (!token) {
-      return NextResponse.json({ error: 'Unauthenticated' }, { status: 401 })
-    }
-  }
-
-  return NextResponse.next()
 }
 
 export const config = {
