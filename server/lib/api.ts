@@ -142,6 +142,7 @@ export interface ApiOrder {
 async function fetchJSONWithAuth<T>(url: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${API_BASE}${url}`, {
     ...options,
+    credentials: 'include',
     headers: { 'Content-Type': 'application/json', ...options?.headers },
   })
   if (!res.ok) {
