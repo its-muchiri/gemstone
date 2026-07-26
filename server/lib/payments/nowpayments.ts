@@ -27,6 +27,10 @@ interface NowPaymentsInvoiceResponse {
 export async function createNowPaymentsInvoice(
   params: NowPaymentsInvoiceRequest
 ): Promise<NowPaymentsInvoiceResponse> {
+  if (!API_KEY) {
+    throw new Error('NOWPAYMENTS_API_KEY is not configured')
+  }
+
   const res = await fetch(`${API_BASE}/invoice`, {
     method: 'POST',
     headers: {

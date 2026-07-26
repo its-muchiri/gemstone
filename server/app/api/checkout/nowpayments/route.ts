@@ -93,9 +93,10 @@ export async function POST(req: NextRequest) {
     if (error instanceof Error && error.name === 'AuthError') {
       return NextResponse.json({ error: error.message }, { status: (error as any).status })
     }
-    console.error('NowPayments checkout error:', error instanceof Error ? error.message : error)
+    const detail = error instanceof Error ? error.message : String(error)
+    console.error('NowPayments checkout error:', detail)
     return NextResponse.json(
-      { error: 'Failed to create payment invoice' },
+      { error: `Payment failed: ${detail}` },
       { status: 502 }
     )
   }
