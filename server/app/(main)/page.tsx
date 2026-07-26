@@ -1,11 +1,23 @@
 'use client'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { bestSellers, testimonials } from '@/lib/static-data'
+import { testimonials } from '@/lib/static-data'
+import { apiProductToFrontend } from '@/lib/api'
+import type { Product } from '@/types'
+import ProductCard from '@/components/ProductCard'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function Home() {
   useScrollReveal()
+  const [products, setProducts] = useState<Product[]>([])
+
+  useEffect(() => {
+    fetch('/api/products?limit=16&sort=best-selling')
+      .then(r => r.json())
+      .then(data => setProducts((data.products || []).map(apiProductToFrontend)))
+      .catch(() => {})
+  }, [])
 
   return (
     <div className="page-enter">
@@ -47,17 +59,22 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Best Selling Gems */}
+      {/* Featured Products */}
       <section className="max-w-7xl mx-auto px-4 py-8">
-        <h3 className="text-lg font-bold mb-4 uppercase tracking-wide scroll-reveal">Best Selling Gems - Last 30 Days</h3>
-        <div className="gs-best-sellers-grid">
-          {bestSellers.map((bs, i) => (
-            <Link key={bs.categorySlug} href={`/gemstones/${bs.categorySlug}`}
-              className={`gs-best-seller-card best-seller-card scroll-reveal delay-${(i % 12) + 1}`}>
-              <Image src={bs.imageUrl} alt={`${bs.name} Gemstones`} width={200} height={200} loading="lazy" sizes="(max-width: 640px) 33vw, 150px" className="product-img-hover" />
-              <span>{bs.name}</span>
-            </Link>
+        <h3 className="text-lg font-bold mb-4 uppercase tracking-wide scroll-reveal">Featured Gemstones</h3>
+        <div className="product-grid">
+          {products.map((p, i) => (
+            <div key={p.id} className={`scroll-reveal delay-${(i % 12) + 1}`}>
+              <ProductCard product={p} />
+            </div>
           ))}
+        </div>
+        <div className="text-center mt-6">
+          <Link href="/all-gemstones"
+            className="best-seller-card scroll-reveal"
+            style={{display: 'inline-block', background: '#005334', color: '#fff', fontWeight: 'bold', padding: '10px 28px', borderRadius: 4, textDecoration: 'none', fontSize: 13}}>
+            View All Gemstones
+          </Link>
         </div>
       </section>
 

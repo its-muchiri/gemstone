@@ -50,6 +50,8 @@ export default function Header() {
   const [categories, setCategories] = useState<ApiCategory[]>([])
   const searchRef = useRef<HTMLDivElement>(null)
   const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null) as React.MutableRefObject<ReturnType<typeof setTimeout> | null>
+  const gemstonesTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const helpTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const router = useRouter()
   const { data: session } = useSession()
   const { totalItems } = useCart()
@@ -235,15 +237,18 @@ export default function Header() {
           <div className="gs-nav-left">
             <Link href="/">Home</Link>
             <div
-              onMouseEnter={() => setGemstonesOpen(true)}
-              onMouseLeave={() => setGemstonesOpen(false)}
+              onMouseEnter={() => { if (gemstonesTimerRef.current) clearTimeout(gemstonesTimerRef.current); setGemstonesOpen(true) }}
+              onMouseLeave={() => { gemstonesTimerRef.current = setTimeout(() => setGemstonesOpen(false), 150) }}
               style={{ position: 'relative' }}
             >
               <button className="flex items-center gap-1 text-white text-sm font-normal nav-underline">
                 Gemstones <ChevronDown size={14} />
               </button>
               {gemstonesOpen && (
-                <div className="absolute left-0 top-full bg-white shadow-lg rounded-b border border-[#ddd] p-4 z-50 w-[600px] anim-slide-down" style={{boxShadow: '0 8px 24px rgba(0,0,0,0.12)'}}>
+                <div className="absolute left-0 top-full bg-white shadow-lg rounded-b border border-[#ddd] p-4 z-50 w-[600px] anim-slide-down" style={{boxShadow: '0 8px 24px rgba(0,0,0,0.12)'}}
+                  onMouseEnter={() => { if (gemstonesTimerRef.current) clearTimeout(gemstonesTimerRef.current) }}
+                  onMouseLeave={() => { gemstonesTimerRef.current = setTimeout(() => setGemstonesOpen(false), 150) }}
+                >
                   <div className="grid grid-cols-3 gap-1">
                     {categories.map(c => (
                       <Link key={c.slug} href={`/gemstones/${c.slug}`}
@@ -262,15 +267,18 @@ export default function Header() {
             </div>
             <Link href="/all-gemstones">New Arrivals</Link>
             <div
-              onMouseEnter={() => setHelpOpen(true)}
-              onMouseLeave={() => setHelpOpen(false)}
+              onMouseEnter={() => { if (helpTimerRef.current) clearTimeout(helpTimerRef.current); setHelpOpen(true) }}
+              onMouseLeave={() => { helpTimerRef.current = setTimeout(() => setHelpOpen(false), 150) }}
               style={{ position: 'relative' }}
             >
               <button className="flex items-center gap-1 text-white text-sm font-normal nav-underline">
                 Help <ChevronDown size={14} />
               </button>
               {helpOpen && (
-                <div className="absolute left-0 top-full bg-white shadow-lg rounded-b border border-[#ddd] py-2 z-50 min-w-[200px] anim-slide-down">
+                <div className="absolute left-0 top-full bg-white shadow-lg rounded-b border border-[#ddd] py-2 z-50 min-w-[200px] anim-slide-down"
+                  onMouseEnter={() => { if (helpTimerRef.current) clearTimeout(helpTimerRef.current) }}
+                  onMouseLeave={() => { helpTimerRef.current = setTimeout(() => setHelpOpen(false), 150) }}
+                >
                   {helpSubLinks.map((l, i) => (
                     <Link key={i} href={l.to} className="block px-4 py-1.5 text-sm text-[#333] hover:bg-[#f5f8f5]">{l.label}</Link>
                   ))}
