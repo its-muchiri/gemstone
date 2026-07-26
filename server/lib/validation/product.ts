@@ -31,6 +31,6 @@ export const productFilterSchema = z.object({
   inStock: z.coerce.boolean().optional(),
   search: z.string().optional(),
   page: z.coerce.number().int().positive().optional().default(1),
-  limit: z.coerce.number().int().positive().max(100).optional().default(24),
+  limit: z.coerce.number().int().positive().max(500).optional().default(24),
   sort: z.enum(['price-asc', 'price-desc', 'newest', 'best-selling']).optional().default('newest'),
 })
