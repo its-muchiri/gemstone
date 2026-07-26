@@ -245,7 +245,7 @@ export default function Header() {
                 Gemstones <ChevronDown size={14} />
               </button>
               {gemstonesOpen && (
-                <div className="absolute left-0 top-full bg-white shadow-lg rounded-b border border-[#ddd] p-4 z-50 w-[600px] anim-slide-down" style={{boxShadow: '0 8px 24px rgba(0,0,0,0.12)'}}
+                <div className="gs-dropdown-panel absolute left-0 top-full bg-white shadow-lg rounded-b p-4 z-50 w-[600px] anim-slide-down" style={{boxShadow: '0 8px 24px rgba(0,0,0,0.12)'}}
                   onMouseEnter={() => { if (gemstonesTimerRef.current) clearTimeout(gemstonesTimerRef.current) }}
                   onMouseLeave={() => { gemstonesTimerRef.current = setTimeout(() => setGemstonesOpen(false), 150) }}
                 >
@@ -275,7 +275,7 @@ export default function Header() {
                 Help <ChevronDown size={14} />
               </button>
               {helpOpen && (
-                <div className="absolute left-0 top-full bg-white shadow-lg rounded-b border border-[#ddd] py-2 z-50 min-w-[200px] anim-slide-down"
+                <div className="gs-dropdown-panel absolute left-0 top-full bg-white shadow-lg rounded-b py-2 z-50 min-w-[200px] anim-slide-down"
                   onMouseEnter={() => { if (helpTimerRef.current) clearTimeout(helpTimerRef.current) }}
                   onMouseLeave={() => { helpTimerRef.current = setTimeout(() => setHelpOpen(false), 150) }}
                 >

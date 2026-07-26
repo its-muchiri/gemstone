@@ -18,11 +18,15 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: var(--color-text-primary);
   background: #fff;
   line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), Georgia, serif;
 }
 
 html {
@@ -469,7 +473,7 @@ html {
   width: 100%;
   background: #fff;
   border-bottom: 1px solid #ddd;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-body), Arial, sans-serif;
 }
 
 .gs-desktop-top {
@@ -620,6 +624,24 @@ html {
 
 .gs-desktop-nav a:hover {
   background: rgba(255,255,255,0.15);
+}
+
+.gs-dropdown-panel {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+}
+
+.gs-dropdown-panel a {
+  color: #333 !important;
+  line-height: 1.6 !important;
+  padding: 6px 12px !important;
+  font-size: 13px !important;
+}
+
+.gs-dropdown-panel a:hover {
+  background: #f0f7f0 !important;
+  color: #005334 !important;
 }
 
 .gs-nav-left,
@@ -833,7 +855,7 @@ html {
   box-shadow: 8px 0 30px rgba(0,0,0,.18);
   display: flex;
   flex-direction: column;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-body), Arial, sans-serif;
   transition: left .28s ease;
   overflow-y: auto;
   overflow-x: hidden;
@@ -863,7 +885,7 @@ html {
 }
 
 .menu-logo {
-  font-family: Georgia, serif;
+  font-family: var(--font-heading), Georgia, serif;
   font-size: 25px;
   letter-spacing: 2px;
   color: #1f2d36;
@@ -873,7 +895,7 @@ html {
 
 .menu-logo span {
   display: block;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-body), Arial, sans-serif;
   font-size: 13px;
   letter-spacing: normal;
   color: #555;
@@ -1244,7 +1266,7 @@ img { max-width: 100%; height: auto; }
   background: linear-gradient(180deg, #1f2e22 0%, #1a2620 100%);
   color: #fff;
   padding: 40px 0 0;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-body), Arial, sans-serif;
 }
 
 .gs-footer a {
